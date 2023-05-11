@@ -4,41 +4,115 @@ using UnityEngine;
 
 public class BookShelf : MonoBehaviour
 {
-    private float startTime, distance;
-    private Vector3 startPosition, targetPosition;
+    private Vector3 pos;
 
-    enum STATE
+    private enum StateType
     {
-        WALK = 0,
-        TEXT,
-        GIMMICK,
+        Stop, //移動
+        Gimmick,//ギミック
     }
+    private StateType _state = StateType.Stop; //現在のステート
+    private StateType _nextState = StateType.Stop; //次のステート
+
 
     void Start()
     {
-        //スタート時間をキャッシュ
-        startTime = Time.time;
-        //スタート位置をキャッシュ
-        startPosition = transform.position;
-        //到着地点をセット
-        targetPosition = new Vector3(0, 0, 10);
-        //目的地までの距離を求める
-        distance = Vector3.Distance(startPosition, targetPosition);
+        StopStart();
+    }
+
+    void Update()
+    {
+        pos = transform.position;
+
+        switch (_state)
+        {
+            case StateType.Stop:
+                StopUpdate();
+                break;
+            case StateType.Gimmick:
+                GimmickUpdate();
+                break;
+        }
+        if(_state != _nextState) //ステートが切り替わったら
+        {
+            switch (_state)
+            {
+                case StateType.Stop:
+                    StopEnd();
+                    break;
+                case StateType Gimmick:
+                    GimmickEnd();
+                    break;
+            }
+
+            _state = _nextState;
+            switch (_state)
+            {
+                case StateType.Stop:
+                    StopStart();
+                    break;
+                case StateType Gimmck:
+                    GimmickStart();
+                    break;
+            }
+        }
+
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChangeState(StateType nextState)
     {
-        
+        _nextState = nextState;
+    }
+    
 
+    void StopStart()
+    {
+        Debug.Log("STOP");
+    }
+    void StopUpdate()
+    {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("クリック");
-            //現在フレームの補間値を計算
-            float interpolatedValue = (Time.time - startTime) / distance;
-            //移動させる
-            transform.position = Vector3.Lerp(startPosition, targetPosition, interpolatedValue);
+            //clickedGameObject = null;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if(hit.collider.gameObject.name == "BookShelf") //本棚をクリック
+                {
+                    Debug.Log("クリック");
+                    ChangeState(StateType.Gimmick);
+                }
+            }
         }
+    }
+
+    void StopEnd()
+    {
+
+    }
+
+    void GimmickStart()
+    {
+
+    }
+
+    void GimmickUpdate()
+    {
+        if(pos.z > -1f)
+        {
+            transform.Translate(0,0,-0.002f);
+        }
+        if(pos.z < -1f && pos.x < 4f)
+        {
+            transform.Translate(0.005f, 0, 0);
+        }
+    }
+    void GimmickEnd()
+    {
+
     }
 }
