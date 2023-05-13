@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeGimmick : MonoBehaviour
+public class ExitKey : MonoBehaviour
 {
-    [SerializeField] GameObject key;
+    bool exitKey　= false;
+
     void Start()
     {
-
+        
     }
 
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -20,12 +22,16 @@ public class SafeGimmick : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.name == "Safe") //金庫をクリック
+                if (hit.collider.gameObject.name == "ExitKey") //出口の鍵をクリック
                 {
-                    Debug.Log("クリック");
-                    key.gameObject.SetActive(true);
+                    Destroy(this.gameObject);
+                    exitKey = true;
                 }
             }
+        }
+        if(exitKey == true)
+        {
+            Debug.Log("GET!");
         }
     }
 }
