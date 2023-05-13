@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafeGimmick : MonoBehaviour
 {
     [SerializeField] GameObject key;
+
     void Start()
     {
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitKey : MonoBehaviour
 {
-    bool exitKey　= false;
+    public static bool exitKey　= false;
 
     void Start()
     {
@@ -24,8 +24,8 @@ public class ExitKey : MonoBehaviour
             {
                 if (hit.collider.gameObject.name == "ExitKey") //出口の鍵をクリック
                 {
-                    Destroy(this.gameObject);
                     exitKey = true;
+                    Destroy(this.gameObject);
                 }
             }
         }
