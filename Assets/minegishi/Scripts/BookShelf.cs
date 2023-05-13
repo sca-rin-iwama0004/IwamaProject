@@ -106,10 +106,11 @@ public class BookShelf : MonoBehaviour
         {
             transform.Translate(0,0,-0.002f);
         }
-        if(pos.z < -1f && pos.x < -22f)
+        else if(pos.z < -1f && pos.x < -22f)
         {
             transform.Translate(0.005f, 0, 0);
-        }
+        }else
+            ChangeState(StateType.Stop);
     }
     void GimmickEnd()
     {
