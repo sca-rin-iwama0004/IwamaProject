@@ -4,32 +4,53 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Camera MainCamera;
-    private Vector3 lastMousePosition;
-    private Vector3 newAngle = new Vector3(0, 0, 0);
+　　　　
+    // X軸周りのカメラ回転速度.
+    [SerializeField] float xRotationSpeed = 5f;
+    // Y軸周りのカメラ回転速度.
+    [SerializeField] float yRotationSpeed = 5f;
+　　　　
+    // マウスクリックを開始した位置.
+    Vector3 startMousePosition = Vector3.zero;
+    // クリック開始時点でのカメラの角度.
+    Vector3 startCameraRotation = Vector3.zero;
 
-    void Start()
-    {
-       
-    }
+　　　　
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        // クリックの開始.
+        if (Input.GetMouseButtonDown(1) == true)
         {
-            // マウスクリック開始(マウスダウン)時にカメラの角度を保持(Z軸には回転させないため).
-            newAngle = MainCamera.transform.localEulerAngles;
-            lastMousePosition = Input.mousePosition;
+            // マウスの位置とカメラの角度を保管.
+            startMousePosition = Input.mousePosition;
+            startCameraRotation = Camera.main.gameObject.transform.localRotation.eulerAngles;
         }
-        else if (Input.GetMouseButton(1))
-        {
-            // マウスの移動量分カメラを回転させる.
-            newAngle.y += (Input.mousePosition.x - lastMousePosition.x) * 0.1f;
-            newAngle.x -= (Input.mousePosition.y - lastMousePosition.y) * 0.1f;
-            MainCamera.gameObject.transform.localEulerAngles = newAngle;
 
-            lastMousePosition = Input.mousePosition;
+        // クリック中（ドラッグ）.
+        if (Input.GetMouseButton(1) == true)
+        {
+            // 現時点のマウス位置を取得.
+            var currentMousePosition = Input.mousePosition;
+            // クリック開始位置からの差分を算出.
+            var def = (currentMousePosition - startMousePosition);
+            // 現在のカメラ角度.
+            var currentCameraRotation = Camera.main.transform.localRotation.eulerAngles;
+            // 回転角度を算出.
+            currentCameraRotation.x = startCameraRotation.x + (-def.y * xRotationSpeed * 0.01f);
+            currentCameraRotation.y = startCameraRotation.y + (def.x * yRotationSpeed * 0.01f);
+            // カメラに適用.
+            Camera.main.transform.localRotation = Quaternion.Euler(currentCameraRotation);
+        }
+
+        // クリック終了.
+        if (Input.GetMouseButtonUp(1) == true)
+        {
+            // 保管した値をリセット.
+            startMousePosition = Vector3.zero;
+            startCameraRotation = Vector3.zero;
         }
     }
-}
+　　　　
 
+}

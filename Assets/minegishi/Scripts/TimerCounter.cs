@@ -7,11 +7,18 @@ using UnityEngine.UI;
 public class TimerCounter : MonoBehaviour
 {
     [SerializeField] float timeMinutes;
-    float timeSeconds;
+    [SerializeField]float timeSeconds;
     [SerializeField] Text timeText;
+    private static bool created = false;
 
     void Start()
     {
+        if (!created) {
+            created = true;
+            DontDestroyOnLoad(this);
+        }else
+            Destroy(this.gameObject);
+
         timeSeconds = timeMinutes * 60;
     }
 
