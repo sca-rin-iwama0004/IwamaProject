@@ -6,6 +6,8 @@ public class SafeGimmick : MonoBehaviour
 {
     [SerializeField] GameObject key;
 
+    static bool open = false;
+
     void Start()
     {
 
@@ -21,10 +23,12 @@ public class SafeGimmick : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.name == "Safe") //金庫をクリック
+                if (hit.collider.gameObject.name == "Safe" && !open) //金庫をクリック
                 {
                     Debug.Log("クリック");
+                    open = true;
                     key.gameObject.SetActive(true);
+
                 }
             }
         }

@@ -6,6 +6,9 @@ public class BookShelf : MonoBehaviour
 {
     private Vector3 pos;
 
+    static bool gimmick = false;
+    
+
     private enum StateType
     {
         Stop, //移動
@@ -81,7 +84,7 @@ public class BookShelf : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.gameObject.name == "BookShelf") //本棚をクリック
+                if(hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
                 {
                     Debug.Log("クリック");
                     ChangeState(StateType.Gimmick);
@@ -102,18 +105,29 @@ public class BookShelf : MonoBehaviour
 
     void GimmickUpdate()
     {
-        if(pos.z > -1f)
+        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+        if (pos.z > -1f)
         {
             transform.Translate(0,0,-0.002f);
         }
         else if(pos.z < -1f && pos.x < -22f)
         {
             transform.Translate(0.005f, 0, 0);
-        }else
-            ChangeState(StateType.Stop);
+        }
+        else
+        {
+            
+            GimmickEnd();
+           // StartCoroutine(text.Cotest());
+        }
+            
     }
-    void GimmickEnd()
+    public bool GimmickEnd()
     {
-
+        gimmick = true;
+        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+        StartCoroutine(text.Cotest());
+        ChangeState(StateType.Stop);
+        return true;
     }
 }

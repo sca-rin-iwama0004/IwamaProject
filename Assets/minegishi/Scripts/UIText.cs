@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIText : MonoBehaviour
 {
-    public Text talkText;
+    public Text nameText; //しゃべっている人の名前
+    public Text talkText; //しゃべっている内容
 
     public bool playing = false;
     public float textSpeed = 0.1f;
@@ -24,8 +25,15 @@ public class UIText : MonoBehaviour
         StartCoroutine("CoDrawText", text);
     }
 
+    // 通常会話用のテキストを生成する関数
+    public void DrawText(string name, string text)
+    {
+        nameText.text = name + "\n「";
+        StartCoroutine("CoDrawText", text + "」");
+    }
+
     // テキストがヌルヌル出てくるためのコルーチン
-    IEnumerator CoDrawText(string text)
+    public IEnumerator CoDrawText(string text)
     {
         playing = true;
         float time = 0;
