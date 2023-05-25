@@ -6,6 +6,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
+    public enum Mode
+    {
+        Play, //ˆÚ“®’†
+        Gimmick,//ƒMƒ~ƒbƒN
+        Text,
+    }
+
+    public Mode PlayMode;
+
+     void ModeChange()
+    {
+
+    }
+
     private void Awake()
     {
         if(instance == null)

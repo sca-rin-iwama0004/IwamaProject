@@ -5,7 +5,6 @@ using UnityEngine;
 public class TextWriter : MonoBehaviour
 {
     public UIText uitext;
-    public BookShelf bookshelf;
  
     void Start()
     {
@@ -14,21 +13,7 @@ public class TextWriter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject.name == "BookShelf") //本棚をクリック
-                {
-                    //StartCoroutine("Contest");
-                }
-            }
-        }
+        
     }
     // クリック待ちのコルーチン
     public IEnumerator Skip()
@@ -40,14 +25,26 @@ public class TextWriter : MonoBehaviour
     // 文章を表示させるコルーチン
     public IEnumerator Cotest()
     {
-        
-        uitext.DrawText("本棚が動いた");
-        yield return StartCoroutine("Skip");
+        BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
+        if (bookshelf.gimmicktext) { 
+            uitext.DrawText("本棚が動いた");
+            yield return StartCoroutine("Skip");
 
-        uitext.DrawText("扉が出てきた");
-        yield return StartCoroutine("Skip");
+            uitext.DrawText("扉が出てきた");
+            yield return StartCoroutine("Skip");
 
-        uitext.DrawText("");
+            uitext.DrawText("");
+            bookshelf.gimmicktext = false;
+        }
 
+        SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
+        if (safe.safetext == true)
+        {
+            uitext.DrawText("金庫が開いた");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText("");
+            safe.safetext = false;
+        }
     }
 }

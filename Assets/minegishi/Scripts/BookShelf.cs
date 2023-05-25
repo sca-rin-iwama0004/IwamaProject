@@ -7,20 +7,22 @@ public class BookShelf : MonoBehaviour
     private Vector3 pos;
 
     static bool gimmick = false;
-    
+    public bool gimmicktext = false;
+
+    public TimerCounter timer;
 
     private enum StateType
     {
-        Stop, //移動
+        Play, //移動中
         Gimmick,//ギミック
     }
-    private StateType _state = StateType.Stop; //現在のステート
-    private StateType _nextState = StateType.Stop; //次のステート
+    private StateType _state = StateType.Play; //現在のステート
+    private StateType _nextState = StateType.Play; //次のステート
 
 
     void Start()
     {
-        StopStart();
+        PlayStart();
     }
 
     void Update()
@@ -29,8 +31,8 @@ public class BookShelf : MonoBehaviour
 
         switch (_state)
         {
-            case StateType.Stop:
-                StopUpdate();
+            case StateType.Play:
+                PlayUpdate();
                 break;
             case StateType.Gimmick:
                 GimmickUpdate();
@@ -40,8 +42,8 @@ public class BookShelf : MonoBehaviour
         {
             switch (_state)
             {
-                case StateType.Stop:
-                    StopEnd();
+                case StateType.Play:
+                    PlayEnd();
                     break;
                 case StateType Gimmick:
                     GimmickEnd();
@@ -51,15 +53,14 @@ public class BookShelf : MonoBehaviour
             _state = _nextState;
             switch (_state)
             {
-                case StateType.Stop:
-                    StopStart();
+                case StateType.Play:
+                    PlayStart();
                     break;
                 case StateType Gimmck:
                     GimmickStart();
                     break;
             }
         }
-
 
     }
 
@@ -69,11 +70,11 @@ public class BookShelf : MonoBehaviour
     }
     
 
-    void StopStart()
+    void PlayStart()
     {
         Debug.Log("STOP");
     }
-    void StopUpdate()
+    void PlayUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -86,14 +87,14 @@ public class BookShelf : MonoBehaviour
             {
                 if(hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
                 {
-                    Debug.Log("クリック");
+                    Debug.Log("gimmick");
                     ChangeState(StateType.Gimmick);
                 }
             }
         }
     }
 
-    void StopEnd()
+    void PlayEnd()
     {
 
     }
@@ -105,7 +106,6 @@ public class BookShelf : MonoBehaviour
 
     void GimmickUpdate()
     {
-        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
         if (pos.z > -1f)
         {
             transform.Translate(0,0,-0.002f);
@@ -122,12 +122,12 @@ public class BookShelf : MonoBehaviour
         }
             
     }
-    public bool GimmickEnd()
+    public void GimmickEnd()
     {
         gimmick = true;
+        gimmicktext = true;
         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
         StartCoroutine(text.Cotest());
-        ChangeState(StateType.Stop);
-        return true;
+        ChangeState(StateType.Play);
     }
 }
