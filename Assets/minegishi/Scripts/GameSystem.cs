@@ -5,36 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameManager GM;
+
     void Start()
     {
-        
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+        if(GM.PlayMode == GameManager.Mode.Play) { 
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.gameObject.name == "Door") //ドアをクリック
+                //clickedGameObject = null;
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("シーン移動");
-                    SceneManager.LoadScene("Hidden Room");
-                }
-                if (hit.collider.gameObject.name == "Vault Room") //ドアをクリック
-                {
-                    Debug.Log("シーン移動");
-                    SceneManager.LoadScene("Vault Room");
+                    if (hit.collider.gameObject.name == "Door") //ドアをクリック
+                    {
+                        Debug.Log("シーン移動");
+                        SceneManager.LoadScene("Hidden Room");
+                    }
+                    if (hit.collider.gameObject.name == "Vault Room") //ドアをクリック
+                    {
+                        Debug.Log("シーン移動");
+                        SceneManager.LoadScene("Vault Room");
+                    }
                 }
             }
         }
-        
     }
 }

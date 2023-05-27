@@ -6,6 +6,7 @@ public class TextWriter : MonoBehaviour
 {
     public UIText uitext;
     GameManager GM;
+
  
     void Start()
     {
@@ -36,7 +37,7 @@ public class TextWriter : MonoBehaviour
 
             uitext.DrawText("");
             bookshelf.gimmicktext = false;
-            GM.playMode = GameManager.Mode.Play;
+            GM.PlayMode = GameManager.Mode.Play;
         }
 
 
@@ -48,7 +49,18 @@ public class TextWriter : MonoBehaviour
 
             uitext.DrawText("");
             safe.safetext = false;
-            GM.playMode = GameManager.Mode.Play;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
+
+        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        if(exitkey.exitKeyText == true)
+        {
+            uitext.DrawText("èoå˚ÇÃåÆÇéËÇ…ì¸ÇÍÇΩ");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText("");
+            exitkey.exitKeyText = false;
+            GM.PlayMode = GameManager.Mode.Play;
         }
     }
 }

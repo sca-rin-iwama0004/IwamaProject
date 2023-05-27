@@ -19,7 +19,7 @@ public class SafeGimmick : MonoBehaviour
 
     void Update()
     {
-        if(GM.playMode == GameManager.Mode.Play) { 
+        if(GM.PlayMode == GameManager.Mode.Play) { 
             if (Input.GetMouseButtonDown(0))
             {
 
@@ -31,7 +31,7 @@ public class SafeGimmick : MonoBehaviour
                     if (hit.collider.gameObject.name == "Safe" && !open) //‹àŒÉ‚ðƒNƒŠƒbƒN
                     {
                         Debug.Log("open");
-                        GM.playMode = GameManager.Mode.Text;
+                        GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         

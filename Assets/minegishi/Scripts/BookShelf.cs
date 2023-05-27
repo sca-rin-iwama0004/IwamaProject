@@ -78,7 +78,7 @@ public class BookShelf : MonoBehaviour
     }
     void PlayUpdate()
     {
-        if(GM.playMode == GameManager.Mode.Play) { 
+        if(GM.PlayMode == GameManager.Mode.Play) { 
             if (Input.GetMouseButtonDown(0))
             {
                 //clickedGameObject = null;
@@ -90,7 +90,7 @@ public class BookShelf : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
                     {
-                        GM.playMode = GameManager.Mode.Gimmick;
+                        GM.PlayMode = GameManager.Mode.Gimmick;
                         Debug.Log("gimmick");
                         ChangeState(StateType.Gimmick);
                     }
@@ -132,7 +132,7 @@ public class BookShelf : MonoBehaviour
         gimmick = true;
         gimmicktext = true;
         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-        GM.playMode = GameManager.Mode.Text;
+        GM.PlayMode = GameManager.Mode.Text;
         StartCoroutine(text.Cotest());
         ChangeState(StateType.Play);
     }

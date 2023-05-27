@@ -29,7 +29,7 @@ public class TimerCounter : MonoBehaviour
     
     void Update()
     {
-        if(GM.playMode == GameManager.Mode.Play) { 
+        if(GM.PlayMode == GameManager.Mode.Play) { 
             timeSeconds -= Time.deltaTime;
         }
 

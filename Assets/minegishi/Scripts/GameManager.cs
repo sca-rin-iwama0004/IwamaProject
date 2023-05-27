@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
         Text,
     }
 
-    public Mode playMode;
+    public Mode PlayMode;
 
      void ModeChange()
     {
@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playMode = Mode.Play;
-        Debug.Log(playMode);
+        PlayMode = Mode.Play;
+        Debug.Log(PlayMode);
     }
 
 
