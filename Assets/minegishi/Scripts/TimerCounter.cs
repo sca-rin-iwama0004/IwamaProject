@@ -11,8 +11,12 @@ public class TimerCounter : MonoBehaviour
     [SerializeField] Text timeText;
     private static bool created = false;
 
+    GameManager GM;
+
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         if (!created) {
             created = true;
             DontDestroyOnLoad(this);
@@ -25,7 +29,10 @@ public class TimerCounter : MonoBehaviour
     
     void Update()
     {
-        timeSeconds -= Time.deltaTime;
+        if(GM.playMode == GameManager.Mode.Play) { 
+            timeSeconds -= Time.deltaTime;
+        }
+
         var span = new TimeSpan(0, 0, (int)timeSeconds);
         timeText.text = span.ToString(@"mm\:ss");
         if(timeSeconds <= 0)

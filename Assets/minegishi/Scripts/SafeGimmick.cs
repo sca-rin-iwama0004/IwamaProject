@@ -10,32 +10,39 @@ public class SafeGimmick : MonoBehaviour
     static bool open = false;
 
     public TextWriter text;
+    GameManager GM;
 
     void Start()
     {
-
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+        if(GM.playMode == GameManager.Mode.Play) { 
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.gameObject.name == "Safe" && !open) //金庫をクリック
-                {
-                    TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-                    Debug.Log("open");
-                    safetext = true;
-                    open = true;
-                    Debug.Log(safetext);
-                    StartCoroutine(text.Cotest());
-                    key.gameObject.SetActive(true);
 
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider.gameObject.name == "Safe" && !open) //金庫をクリック
+                    {
+                        Debug.Log("open");
+                        GM.playMode = GameManager.Mode.Text;
+
+                        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+                        
+
+                        safetext = true;
+                        open = true;
+
+                        StartCoroutine(text.Cotest());
+                        key.gameObject.SetActive(true);
+
+                    }
                 }
             }
         }

@@ -10,6 +10,7 @@ public class BookShelf : MonoBehaviour
     public bool gimmicktext = false;
 
     public TimerCounter timer;
+    GameManager GM;
 
     private enum StateType
     {
@@ -23,6 +24,7 @@ public class BookShelf : MonoBehaviour
     void Start()
     {
         PlayStart();
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -38,7 +40,7 @@ public class BookShelf : MonoBehaviour
                 GimmickUpdate();
                 break;
         }
-        if(_state != _nextState) //ステートが切り替わったら
+        if (_state != _nextState) //ステートが切り替わったら
         {
             switch (_state)
             {
@@ -68,7 +70,7 @@ public class BookShelf : MonoBehaviour
     {
         _nextState = nextState;
     }
-    
+
 
     void PlayStart()
     {
@@ -76,19 +78,22 @@ public class BookShelf : MonoBehaviour
     }
     void PlayUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+        if(GM.playMode == GameManager.Mode.Play) { 
+            if (Input.GetMouseButtonDown(0))
             {
-                if(hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
+                //clickedGameObject = null;
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("gimmick");
-                    ChangeState(StateType.Gimmick);
+                    if (hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
+                    {
+                        GM.playMode = GameManager.Mode.Gimmick;
+                        Debug.Log("gimmick");
+                        ChangeState(StateType.Gimmick);
+                    }
                 }
             }
         }
@@ -108,25 +113,26 @@ public class BookShelf : MonoBehaviour
     {
         if (pos.z > -1f)
         {
-            transform.Translate(0,0,-0.002f);
+            transform.Translate(0, 0, -0.002f);
         }
-        else if(pos.z < -1f && pos.x < -22f)
+        else if (pos.z < -1f && pos.x < -22f)
         {
             transform.Translate(0.005f, 0, 0);
         }
         else
         {
-            
+
             GimmickEnd();
-           // StartCoroutine(text.Cotest());
+            // StartCoroutine(text.Cotest());
         }
-            
+
     }
     public void GimmickEnd()
     {
         gimmick = true;
         gimmicktext = true;
         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+        GM.playMode = GameManager.Mode.Text;
         StartCoroutine(text.Cotest());
         ChangeState(StateType.Play);
     }

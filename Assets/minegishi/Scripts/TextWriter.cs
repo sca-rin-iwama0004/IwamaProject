@@ -5,10 +5,11 @@ using UnityEngine;
 public class TextWriter : MonoBehaviour
 {
     public UIText uitext;
+    GameManager GM;
  
     void Start()
     {
-        
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -26,7 +27,7 @@ public class TextWriter : MonoBehaviour
     public IEnumerator Cotest()
     {
         BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
-        if (bookshelf.gimmicktext) { 
+        if (bookshelf.gimmicktext) { //本棚のテキスト
             uitext.DrawText("本棚が動いた");
             yield return StartCoroutine("Skip");
 
@@ -35,16 +36,19 @@ public class TextWriter : MonoBehaviour
 
             uitext.DrawText("");
             bookshelf.gimmicktext = false;
+            GM.playMode = GameManager.Mode.Play;
         }
 
+
         SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
-        if (safe.safetext == true)
+        if (safe.safetext == true) //金庫のテキスト
         {
             uitext.DrawText("金庫が開いた");
             yield return StartCoroutine("Skip");
 
             uitext.DrawText("");
             safe.safetext = false;
+            GM.playMode = GameManager.Mode.Play;
         }
     }
 }
