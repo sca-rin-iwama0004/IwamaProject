@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class TimerCounter : MonoBehaviour
 {
     [SerializeField] float timeMinutes;
-    [SerializeField]float timeSeconds;
+    [SerializeField] float timeSeconds;
     [SerializeField] Text timeText;
+    [SerializeField] GameObject text;
     private static bool created = false;
 
     GameManager GM;
@@ -31,7 +32,9 @@ public class TimerCounter : MonoBehaviour
     {
         if(GM.PlayMode == GameManager.Mode.Play) { 
             timeSeconds -= Time.deltaTime;
-        }
+            text.SetActive(true);
+        }else
+            text.SetActive(false);
 
         var span = new TimeSpan(0, 0, (int)timeSeconds);
         timeText.text = span.ToString(@"mm\:ss");

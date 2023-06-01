@@ -31,7 +31,7 @@ public class TextWriter : MonoBehaviour
         if (bookshelf.gimmicktext) { //本棚のテキスト
             uitext.DrawText("本棚が動いた");
             yield return StartCoroutine("Skip");
-
+            // Destroy();
             uitext.DrawText("扉が出てきた");
             yield return StartCoroutine("Skip");
 
@@ -53,6 +53,7 @@ public class TextWriter : MonoBehaviour
         }
 
         ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        GameObject　exitKey = GameObject.Find("ExitKey");
         if(exitkey.exitKeyText == true)
         {
             uitext.DrawText("出口の鍵を手に入れた");
@@ -61,6 +62,7 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText("");
             exitkey.exitKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
+            Destroy(exitKey);
         }
     }
 }

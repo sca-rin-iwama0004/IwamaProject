@@ -88,7 +88,7 @@ public class BookShelf : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック
+                    if (hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック＆ギミックが一度も作動していない時
                     {
                         GM.PlayMode = GameManager.Mode.Gimmick;
                         Debug.Log("gimmick");
@@ -111,6 +111,7 @@ public class BookShelf : MonoBehaviour
 
     void GimmickUpdate()
     {
+        //本棚移動
         if (pos.z > -1f)
         {
             transform.Translate(0, 0, -0.002f);
@@ -129,8 +130,8 @@ public class BookShelf : MonoBehaviour
     }
     public void GimmickEnd()
     {
-        gimmick = true;
-        gimmicktext = true;
+        gimmick = true; //ギミックが作動した
+        gimmicktext = true; //テキスト表示
         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
         GM.PlayMode = GameManager.Mode.Text;
         StartCoroutine(text.Cotest());

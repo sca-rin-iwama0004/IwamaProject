@@ -36,7 +36,6 @@ public class ExitKey : MonoBehaviour
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());
-                        Destroy(this.gameObject);
                     }
                 }
             }

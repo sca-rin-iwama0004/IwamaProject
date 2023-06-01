@@ -12,13 +12,8 @@ public class GameManager : MonoBehaviour
         Gimmick,//ÉMÉ~ÉbÉN
         Text,
     }
-
     public Mode PlayMode;
 
-     void ModeChange()
-    {
-
-    }
 
     private void Awake()
     {
