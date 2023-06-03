@@ -30,12 +30,12 @@ public class testDoor : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "testDoor")
                     {
-                        //open = true;
-                        //opentext = true;
-                        //GM.PlayMode = GameManager.Mode.Text;
+                        open = true;
+                        opentext = true;
+                        GM.PlayMode = GameManager.Mode.Text;
 
-                        //TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-                        //StartCoroutine(text.Cotest());
+                        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+                        StartCoroutine(text.Cotest());
                     }
                 }
             }
