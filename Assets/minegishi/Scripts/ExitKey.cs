@@ -6,9 +6,11 @@ public class ExitKey : MonoBehaviour
 {
     public static bool exitKeyÅ@= false;
     public bool exitKeyText = false;
+    public bool exitKeyUsed = false;
 
     GameManager GM;
     TextWriter text;
+    SafeGimmick safe;
 
     void Start()
     {
@@ -39,7 +41,13 @@ public class ExitKey : MonoBehaviour
                     }
                 }
             }
-            if(exitKey == true)
+
+            //if (safe.open == true && exitKey == false)
+            //{
+            //    this.gameObject.SetActive(true);
+            //}
+
+            if (exitKey == true)
             {
                 Debug.Log("GET!");
             }

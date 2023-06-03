@@ -7,10 +7,19 @@ public class TextWriter : MonoBehaviour
     public UIText uitext;
     GameManager GM;
 
- 
+    private static bool created = false;
+
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (!created)
+        {
+            created = true;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this.gameObject);
     }
 
     private void Update()
@@ -63,6 +72,28 @@ public class TextWriter : MonoBehaviour
             exitkey.exitKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
             Destroy(exitKey);
+        }
+
+        testDoor testdoor = GameObject.Find("testDoor").GetComponent<testDoor>();
+        if (testdoor.opentext == true && exitKey == false)
+        {
+            uitext.DrawText("Œ®‚ª‚©‚©‚Á‚Ä‚¢‚é");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText("");
+            testdoor.opentext = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }else if (testdoor.opentext == true && exitKey == true)
+        {
+            uitext.DrawText("oŒû‚ÌŒ®‚ğg‚Á‚½");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText("Œ®‚ªŠJ‚¢‚½");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText("");
+            testdoor.opentext = false;
+            GM.PlayMode = GameManager.Mode.Play;
         }
     }
 }
