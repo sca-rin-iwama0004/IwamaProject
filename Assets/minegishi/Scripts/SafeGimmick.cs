@@ -7,7 +7,7 @@ public class SafeGimmick : MonoBehaviour
     [SerializeField] GameObject key;
 
     public bool safetext = false;
-    static bool open = false;
+    public static bool open = false;
 
     public TextWriter text;
     GameManager GM;

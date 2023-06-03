@@ -8,9 +8,19 @@ public class ItemBox : MonoBehaviour
 
     GameManager GM;
 
+    private static bool created = false;
+
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (!created)
+        {
+            created = true;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this.gameObject);
     }
 
     void Update()
