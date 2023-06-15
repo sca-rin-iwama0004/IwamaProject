@@ -12,7 +12,7 @@ public class TextWriter : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        
         if (!created)
         {
             created = true;
@@ -37,7 +37,8 @@ public class TextWriter : MonoBehaviour
     public IEnumerator Cotest()
     {
         BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
-        if (bookshelf.gimmicktext) { //本棚のテキスト
+        if (bookshelf.gimmicktext)
+        { //本棚のテキスト
             uitext.DrawText("本棚が動いた");
             yield return StartCoroutine("Skip");
             // Destroy();
@@ -62,8 +63,8 @@ public class TextWriter : MonoBehaviour
         }
 
         ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
-        GameObject　exitKey = GameObject.Find("ExitKey");
-        if(exitkey.exitKeyText == true)
+        GameObject exitKey = GameObject.Find("ExitKey");
+        if (exitkey.exitKeyText == true)
         {
             uitext.DrawText("出口の鍵を手に入れた");
             yield return StartCoroutine("Skip");
@@ -75,7 +76,7 @@ public class TextWriter : MonoBehaviour
         }
 
         testDoor testdoor = GameObject.Find("testDoor").GetComponent<testDoor>();
-        if (testdoor.opentext == true && exitKey == false)
+        if (testdoor.opentext == true && ExitKey.exitKey == false)
         {
             uitext.DrawText("鍵がかかっている");
             yield return StartCoroutine("Skip");
@@ -83,7 +84,8 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText("");
             testdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
-        }else if (testdoor.opentext == true && exitKey == true)
+        }
+        else if (testdoor.opentext == true && ExitKey.exitKey == true)
         {
             uitext.DrawText("出口の鍵を使った");
             yield return StartCoroutine("Skip");

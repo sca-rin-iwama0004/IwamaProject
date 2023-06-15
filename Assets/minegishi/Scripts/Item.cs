@@ -18,5 +18,9 @@ public class Item : MonoBehaviour
         {
             exitkeyImag.SetActive(true);
         }
+        if(ExitKey.exitKeyUsed == true)
+        {
+            exitkeyImag.GetComponent<CanvasGroup>().alpha = 0.5f;
+        } 
     }
 }

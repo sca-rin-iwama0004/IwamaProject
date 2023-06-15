@@ -6,7 +6,7 @@ public class ExitKey : MonoBehaviour
 {
     public static bool exitKeyÅ@= false;
     public bool exitKeyText = false;
-    public bool exitKeyUsed = false;
+    public static bool exitKeyUsed = false;
 
     GameManager GM;
     TextWriter text;
@@ -46,11 +46,6 @@ public class ExitKey : MonoBehaviour
             //{
             //    this.gameObject.SetActive(true);
             //}
-
-            if (exitKey == true)
-            {
-                Debug.Log("GET!");
-            }
         }
     }
 }

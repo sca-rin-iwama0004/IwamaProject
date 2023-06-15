@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testDoor : MonoBehaviour
 {
-    public bool open = false;
+    public static bool open = false;
     public bool opentext = false;
 
     GameManager GM;
@@ -13,6 +13,7 @@ public class testDoor : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
     }
 
 
@@ -28,14 +29,18 @@ public class testDoor : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "testDoor")
+                    if (hit.collider.gameObject.name == "testDoor" && !open)
                     {
-                        open = true;
                         opentext = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());
+                        if (ExitKey.exitKey)
+                        {
+                            open = true;
+                            ExitKey.exitKeyUsed = true;
+                        }
                     }
                 }
             }
