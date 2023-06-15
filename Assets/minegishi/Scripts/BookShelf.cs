@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BookShelf : MonoBehaviour
 {
-    private Vector3 pos;
+    [SerializeField] GameObject player;
+
+    private Vector3 bookshelfpos;
 
     static bool gimmick = false;
     public bool gimmicktext = false;
@@ -29,8 +31,9 @@ public class BookShelf : MonoBehaviour
 
     void Update()
     {
-        pos = transform.position;
-
+        Transform myTransform = this.transform;
+        bookshelfpos = myTransform.position; //本棚の座標
+        
         switch (_state)
         {
             case StateType.Play:
@@ -78,7 +81,9 @@ public class BookShelf : MonoBehaviour
     }
     void PlayUpdate()
     {
-        if(GM.PlayMode == GameManager.Mode.Play) { 
+        Vector3 playerpos = player.transform.position;　//playerの座標        
+        float dis = Vector3.Distance(bookshelfpos, playerpos);
+        if (GM.PlayMode == GameManager.Mode.Play) { 
             if (Input.GetMouseButtonDown(0))
             {
                 //clickedGameObject = null;
@@ -88,7 +93,7 @@ public class BookShelf : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "BookShelf" && !gimmick) //本棚をクリック＆ギミックが一度も作動していない時
+                    if (hit.collider.gameObject.name == "BookShelf" && !gimmick && dis <= 9) //本棚をクリック＆ギミックが一度も作動していない時
                     {
                         GM.PlayMode = GameManager.Mode.Gimmick;
                         Debug.Log("gimmick");
@@ -112,14 +117,11 @@ public class BookShelf : MonoBehaviour
     void GimmickUpdate()
     {
         //本棚移動
-        if (pos.z > -1f)
+        if (bookshelfpos.z > -4f)
         {
-            transform.Translate(0, 0, -0.002f);
+            transform.Translate(0.002f, 0, 0);
         }
-        else if (pos.z < -1f && pos.x < -22f)
-        {
-            transform.Translate(0.005f, 0, 0);
-        }
+
         else
         {
 

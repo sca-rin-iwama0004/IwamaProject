@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SafeGimmick : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+    private Vector3 safePos;
+
     [SerializeField] GameObject key;
 
     public bool safetext = false;
@@ -19,7 +22,12 @@ public class SafeGimmick : MonoBehaviour
 
     void Update()
     {
-        if(GM.PlayMode == GameManager.Mode.Play) { 
+        Transform myTransform = this.transform;
+        safePos = myTransform.position;
+        Vector3 playerpos = player.transform.position;　//playerの座標        
+        float dis = Vector3.Distance(safePos, playerpos);
+
+        if (GM.PlayMode == GameManager.Mode.Play) { 
             if (Input.GetMouseButtonDown(0))
             {
 
@@ -28,14 +36,13 @@ public class SafeGimmick : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "Safe" && !open) //金庫をクリック
+                    if (hit.collider.gameObject.name == "Safe" && !open && dis <= 9) //金庫をクリック
                     {
                         Debug.Log("open");
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         
-
                         safetext = true;
                         open = true;
 

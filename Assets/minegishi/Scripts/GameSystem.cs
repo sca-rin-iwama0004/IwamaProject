@@ -10,6 +10,7 @@ public class GameSystem : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        testDoor testdoor = GameObject.Find("testDoor").GetComponent<testDoor>();
     }
 
     
@@ -31,6 +32,11 @@ public class GameSystem : MonoBehaviour
                         SceneManager.LoadScene("Hidden Room");
                     }
                     if (hit.collider.gameObject.name == "Vault Room") //ドアをクリック
+                    {
+                        Debug.Log("シーン移動");
+                        SceneManager.LoadScene("Vault Room");
+                    }
+                    if (hit.collider.gameObject.name == "testDoor" && testDoor.open) //ドアをクリック
                     {
                         Debug.Log("シーン移動");
                         SceneManager.LoadScene("Vault Room");

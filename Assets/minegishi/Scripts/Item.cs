@@ -14,13 +14,16 @@ public class Item : MonoBehaviour
 
     void Update()
     {
+        //出口のカギを手に入れたら表示する
         if(ExitKey.exitKey == true)
         {
             exitkeyImag.SetActive(true);
         }
-        if(ExitKey.exitKeyUsed == true)
+        //出口のカギを使ったら半透明にする
+        if (ExitKey.exitKeyUsed == true)
         {
-            exitkeyImag.GetComponent<CanvasGroup>().alpha = 0.5f;
+            exitkeyImag.GetComponent<CanvasGroup>().alpha = 0.3f;
+            Debug.Log("Used");
         } 
     }
 }
