@@ -75,7 +75,7 @@ public class TextWriter : MonoBehaviour
             Destroy(exitKey);
         }
 
-        testDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<testDoor>();
+        ExitDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
         if (exitdoor.opentext == true && ExitKey.exitKey == false)
         {
             uitext.DrawText("Œ®‚ª‚©‚©‚Á‚Ä‚¢‚é");

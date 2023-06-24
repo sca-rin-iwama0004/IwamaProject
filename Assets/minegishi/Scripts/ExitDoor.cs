@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testDoor : MonoBehaviour
+public class ExitDoor : MonoBehaviour
 {
     public static bool open = false;
     public bool opentext = false;

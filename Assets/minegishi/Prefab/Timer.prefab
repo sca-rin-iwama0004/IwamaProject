@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMinutes: 5
+  timeSeconds: 0
   timeText: {fileID: 0}
+  text: {fileID: 0}

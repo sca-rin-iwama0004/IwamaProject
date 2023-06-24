@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 599666231}
   - component: {fileID: 599666230}
   m_Layer: 0
-  m_Name: Vault Room
+  m_Name: VaultRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

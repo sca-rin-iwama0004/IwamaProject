@@ -1067,10 +1067,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793284256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a243a66c7bb83f14992c563917d4ab19, type: 3}
+  m_Script: {fileID: 11500000, guid: 55bb2a7eee18dea4ca8c6122e2457b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Juwel: {fileID: 1793284256}
+  clickedGameObject: {fileID: 1793284256}
 --- !u!1 &1820364864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7298201886584714617, guid: 4beeb648dadb81a43b6bfe206ee2ef77,
