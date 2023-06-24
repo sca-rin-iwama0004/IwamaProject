@@ -45,5 +45,9 @@ public class TimerCounter : MonoBehaviour
             SceneManager.LoadScene("gameoverScene");
             Debug.Log("TimeUp");
         }
+        if (SceneManager.GetActiveScene().name == "gameclearScene") {
+            GM.PlayMode = GameManager.Mode.end;
+            
+        }
     }
 }

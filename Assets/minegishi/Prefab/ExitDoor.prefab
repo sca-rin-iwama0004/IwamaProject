@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1157601095937758687
+--- !u!1 &6183624768666847088
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1157601095937758683}
-  - component: {fileID: 1157601095937758682}
-  - component: {fileID: 1157601095937758681}
-  - component: {fileID: 1157601095937758680}
-  - component: {fileID: 1157601095937758676}
-  m_Layer: 8
-  m_Name: ExitKey
+  - component: {fileID: 6183624768666847093}
+  - component: {fileID: 6183624768666847092}
+  - component: {fileID: 6183624768666847091}
+  - component: {fileID: 6183624768666847090}
+  - component: {fileID: 6183624768666847089}
+  m_Layer: 0
+  m_Name: ExitDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1157601095937758683
+--- !u!4 &6183624768666847093
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157601095937758687}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -28.85, y: -2.7926, z: 10.889999}
-  m_LocalScale: {x: 0.283, y: 0.37896693, z: 0.4037}
+  m_GameObject: {fileID: 6183624768666847088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13, y: 0, z: 24.25}
+  m_LocalScale: {x: 4, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!33 &1157601095937758682
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6183624768666847092
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157601095937758687}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1157601095937758681
+  m_GameObject: {fileID: 6183624768666847088}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6183624768666847091
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157601095937758687}
+  m_GameObject: {fileID: 6183624768666847088}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c66c48fcfcea60e4d9bf0fea3e8b5dfd, type: 2}
+  - {fileID: 2100000, guid: f6aa45bb5b524144ca5a3aafac91ccca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,31 +83,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1157601095937758680
-CapsuleCollider:
+--- !u!65 &6183624768666847090
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157601095937758687}
+  m_GameObject: {fileID: 6183624768666847088}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1157601095937758676
+--- !u!114 &6183624768666847089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157601095937758687}
+  m_GameObject: {fileID: 6183624768666847088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447103c476beaa44c926c8f96b9bbc03, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bb576643e838d548b446e9c338dd6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5772867501235890793, guid: db0061dda1ccf5542a55d2f3b152cd37, type: 3}
-  exitKeyText: 0
+  opentext: 0

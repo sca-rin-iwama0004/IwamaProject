@@ -20,6 +20,7 @@ public class ExitKey : MonoBehaviour
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
+        
     }
 
     

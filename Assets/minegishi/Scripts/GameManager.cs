@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         Play, //ˆÚ“®’†
         Gimmick,//ƒMƒ~ƒbƒN
         Text,
+        end,
     }
     public Mode PlayMode;
 
