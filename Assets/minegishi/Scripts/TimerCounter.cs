@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerCounter : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class TimerCounter : MonoBehaviour
         if(timeSeconds <= 0)
         {
             timeSeconds = 0;
+            SceneManager.LoadScene("gameoverScene");
             Debug.Log("TimeUp");
         }
     }

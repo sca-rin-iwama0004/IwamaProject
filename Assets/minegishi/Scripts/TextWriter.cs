@@ -75,17 +75,17 @@ public class TextWriter : MonoBehaviour
             Destroy(exitKey);
         }
 
-        testDoor testdoor = GameObject.Find("testDoor").GetComponent<testDoor>();
-        if (testdoor.opentext == true && ExitKey.exitKey == false)
+        testDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<testDoor>();
+        if (exitdoor.opentext == true && ExitKey.exitKey == false)
         {
             uitext.DrawText("åÆÇ™Ç©Ç©Ç¡ÇƒÇ¢ÇÈ");
             yield return StartCoroutine("Skip");
 
             uitext.DrawText("");
-            testdoor.opentext = false;
+            exitdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
         }
-        else if (testdoor.opentext == true && ExitKey.exitKey == true)
+        else if (exitdoor.opentext == true && ExitKey.exitKey == true)
         {
             uitext.DrawText("èoå˚ÇÃåÆÇégÇ¡ÇΩ");
             yield return StartCoroutine("Skip");
@@ -94,7 +94,7 @@ public class TextWriter : MonoBehaviour
             yield return StartCoroutine("Skip");
 
             uitext.DrawText("");
-            testdoor.opentext = false;
+            exitdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
         }
     }

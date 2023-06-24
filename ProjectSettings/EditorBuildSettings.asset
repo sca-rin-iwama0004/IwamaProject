@@ -6,9 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Iwama/Scenes/titleScene.unity
+    guid: dd57a0d23ce39034992d2e0824a1e868
+  - enabled: 1
+    path: Assets/Iwama/Scenes/rouyaScene.unity
+    guid: edccce535d9e2514d8c9ddd815e0824d
+  - enabled: 1
+    path: Assets/Iwama/Scenes/SampleScene.unity
+    guid: d86741b3d908ae5488207e26c6fb4db2
+  - enabled: 1
+    path: Assets/Iwama/Scenes/RightroomScene.unity
+    guid: 7fd34629ec6d9e44dbb87347d60409e7
+  - enabled: 1
     path: Assets/minegishi/Scenes/Vault Room.unity
     guid: 90a8e03f62a028d4ea3a3b558d38821f
   - enabled: 1
     path: Assets/minegishi/Scenes/Hidden Room.unity
     guid: 6d12d0df362775340bbde9a1ef881eff
+  - enabled: 1
+    path: Assets/Iwama/Scenes/entranceScene.unity
+    guid: 73be490bb966d5247a691a7a4f577078
+  - enabled: 1
+    path: Assets/Iwama/Scenes/gameoverScene.unity
+    guid: e78a3cceb37de01479f7cca37dbba500
+  - enabled: 1
+    path: Assets/Iwama/Scenes/gameclearScene.unity
+    guid: 34a95948e313a04458a178c5b752d981
   m_configObjects: {}

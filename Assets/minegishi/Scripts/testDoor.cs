@@ -29,7 +29,7 @@ public class testDoor : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "testDoor" && !open)
+                    if (hit.collider.gameObject.name == "ExitDoor" && !open)
                     {
                         opentext = true;
                         GM.PlayMode = GameManager.Mode.Text;

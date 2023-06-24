@@ -10,7 +10,7 @@ public class GameSystem : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        testDoor testdoor = GameObject.Find("testDoor").GetComponent<testDoor>();
+        testDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<testDoor>();
     }
 
     
@@ -31,7 +31,7 @@ public class GameSystem : MonoBehaviour
                         Debug.Log("シーン移動");
                         SceneManager.LoadScene("Hidden Room");
                     }
-                    if (hit.collider.gameObject.name == "Vault Room") //ドアをクリック
+                    if (hit.collider.gameObject.name == "VaultRoom") //ドアをクリック
                     {
                         Debug.Log("シーン移動");
                         SceneManager.LoadScene("Vault Room");
@@ -39,12 +39,13 @@ public class GameSystem : MonoBehaviour
                     if (hit.collider.gameObject.name == "GreatHallDoor") //ドアをクリック
                     {
                         Debug.Log("シーン移動");
-                        SceneManager.LoadScene("Hidden Room");
+                        SceneManager.LoadScene("SampleScene");
                     }
-                    if (hit.collider.gameObject.name == "testDoor" && testDoor.open) //ドアをクリック
+
+                    if (hit.collider.gameObject.name == "ExitDoor" && testDoor.open) //ドアをクリック
                     {
                         Debug.Log("シーン移動");
-                        SceneManager.LoadScene("Vault Room");
+                        SceneManager.LoadScene("entranceScene");
                     }
                 }
             }
