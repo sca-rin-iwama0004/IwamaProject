@@ -5,20 +5,14 @@ using UnityEngine;
 public class Pot : MonoBehaviour
 {
     bool Moveing = false;//カメラが動いているか
-    bool nozoku = false;//Aボタン押されたか
+ //   bool nozoku = false;//Aボタン押されたか
  
-    public GameObject Juwel;
-
     public GameObject mainCamera;
     bool A_Destroy = false;
 
     void Start()
     {
-        //宝石1を入手していたら
-        if (GameManager.Instance.Juwel2Get)
-        {
-            Destroy(Juwel);
-        }
+  
     }
 
     // Update is called once per frame
@@ -30,11 +24,13 @@ public class Pot : MonoBehaviour
             //選択肢(中をのぞく)が表示されたとき
             if (Input.GetKey(KeyCode.C))
             {
-                if (!Moveing && !nozoku)
+                //if (!Moveing && !nozoku)
+                if (!Moveing )
                     StartCoroutine("Rotate");
                      Moveing = true;
             }
 
+            /*
             if (nozoku)//宝石を取るを押したとき
             {
                 if (Input.GetKey(KeyCode.D) && !A_Destroy)
@@ -46,8 +42,8 @@ public class Pot : MonoBehaviour
                     GameManager.Instance.Juwel2Get = true;
                 }
             }
-            //消したらカウント1回だけ動く
-            //boolたてなくちゃいけないfalse
+           
+            */
         }
         
     }
@@ -61,7 +57,7 @@ public class Pot : MonoBehaviour
             //一度きりの処理、制御
         }
         Moveing = false;
-        nozoku = true;
+      //  nozoku = true;
         
     }
  }
