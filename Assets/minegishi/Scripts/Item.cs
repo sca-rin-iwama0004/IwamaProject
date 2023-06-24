@@ -23,7 +23,6 @@ public class Item : MonoBehaviour
         if (ExitKey.exitKeyUsed == true)
         {
             exitkeyImag.GetComponent<CanvasGroup>().alpha = 0.3f;
-            Debug.Log("Used");
         } 
     }
 }

@@ -36,6 +36,11 @@ public class GameSystem : MonoBehaviour
                         Debug.Log("シーン移動");
                         SceneManager.LoadScene("Vault Room");
                     }
+                    if (hit.collider.gameObject.name == "GreatHallDoor") //ドアをクリック
+                    {
+                        Debug.Log("シーン移動");
+                        SceneManager.LoadScene("Hidden Room");
+                    }
                     if (hit.collider.gameObject.name == "testDoor" && testDoor.open) //ドアをクリック
                     {
                         Debug.Log("シーン移動");

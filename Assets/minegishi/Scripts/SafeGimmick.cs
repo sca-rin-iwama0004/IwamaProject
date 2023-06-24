@@ -24,7 +24,7 @@ public class SafeGimmick : MonoBehaviour
     {
         Transform myTransform = this.transform;
         safePos = myTransform.position;
-        Vector3 playerpos = player.transform.position;　//playerの座標        
+        Vector3 playerpos = player.transform.position;　//playerの座標
         float dis = Vector3.Distance(safePos, playerpos);
 
         if (GM.PlayMode == GameManager.Mode.Play) { 
