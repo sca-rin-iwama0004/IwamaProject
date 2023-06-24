@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -459,8 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37236a3c38fbe494590063ade0dceb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numText: {fileID: 1555922676}
-  number: 0
 --- !u!114 &391927082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +564,7 @@ GameObject:
   - component: {fileID: 421133137}
   - component: {fileID: 421133136}
   - component: {fileID: 421133140}
+  - component: {fileID: 421133141}
   m_Layer: 0
   m_Name: SubCamera
   m_TagString: Untagged
@@ -582,7 +581,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 421133135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 515c03b50ce883d45bc94874d53be288, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e06bf6c3cde28441b31f0b40971e48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Juwel: {fileID: 226606176}
@@ -666,6 +665,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194225}
   Juwel: {fileID: 226606176}
+--- !u!114 &421133141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421133135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &473169131
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37236a3c38fbe494590063ade0dceb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numText: {fileID: 1989332297}
-  number: 0
 --- !u!114 &663973646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 680011924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2b1e29459ea7e4b81730bcbfd52902, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a737ca3ca6d94f95f07937d63ec2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &680011926
@@ -1482,8 +1495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37236a3c38fbe494590063ade0dceb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numText: {fileID: 934650955}
-  number: 0
 --- !u!1 &892084675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1521,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 892084675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b38815f0ccdaa44aa7c6a862e7dae4, type: 3}
+  m_Script: {fileID: 11500000, guid: 06c26316303e500489c375a293e7a0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194225}
@@ -1953,7 +1964,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1138643918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531d50d3506015d48838ccf99830e9f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 941cda501927c4f45a06c2af793fa9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1804296135}
@@ -2102,8 +2113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37236a3c38fbe494590063ade0dceb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numText: {fileID: 694240548}
-  number: 0
 --- !u!114 &1175638569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2791,11 +2800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda274973fdce7a4b9081efe82eedd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberPanels:
-  - {fileID: 891946570}
-  - {fileID: 391927081}
-  - {fileID: 663973645}
-  - {fileID: 1175638568}
 --- !u!212 &1865244625
 SpriteRenderer:
   m_ObjectHideFlags: 0
