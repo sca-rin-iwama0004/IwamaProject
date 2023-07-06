@@ -14,12 +14,12 @@ public class ExitKey : MonoBehaviour
 
     GameManager GM;
     TextWriter text;
-    //SafeGimmick safe;
+    SafeGimmick safe;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
+        safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
         
     }
 

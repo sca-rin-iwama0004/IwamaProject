@@ -6,13 +6,21 @@ public class TextWriter : MonoBehaviour
 {
     public UIText uitext;
     GameManager GM;
+    BookShelf bookshelf;
+    SafeGimmick safe;
+    ExitKey exitkey;
+    ExitDoor exitdoor;
 
     private static bool created = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
+        bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
+        safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
+        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
+
         if (!created)
         {
             created = true;
@@ -36,12 +44,10 @@ public class TextWriter : MonoBehaviour
     // 文章を表示させるコルーチン
     public IEnumerator Cotest()
     {
-        BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
         if (bookshelf.gimmicktext)
         { //本棚のテキスト
             uitext.DrawText("本棚が動いた");
             yield return StartCoroutine("Skip");
-            // Destroy();
             uitext.DrawText("扉が出てきた");
             yield return StartCoroutine("Skip");
 
@@ -50,8 +56,6 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-
-        SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
         if (safe.safetext == true) //金庫のテキスト
         {
             uitext.DrawText("金庫が開いた");
@@ -62,7 +66,6 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
         GameObject exitKey = GameObject.Find("ExitKey");
         if (exitkey.exitKeyText == true)
         {
@@ -75,7 +78,7 @@ public class TextWriter : MonoBehaviour
             Destroy(exitKey);
         }
 
-        ExitDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
+        
         if (exitdoor.opentext == true && ExitKey.exitKey == false)
         {
             uitext.DrawText("鍵がかかっている");
@@ -97,5 +100,9 @@ public class TextWriter : MonoBehaviour
             exitdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
         }
-    }
+        /*if(){
+         * uitext.DrawText("")
+         * }
+         */
+    }  
 }

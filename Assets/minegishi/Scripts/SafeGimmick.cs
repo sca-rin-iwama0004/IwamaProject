@@ -14,10 +14,12 @@ public class SafeGimmick : MonoBehaviour
 
     public TextWriter text;
     GameManager GM;
+    ExitKey exitkey;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
     }
 
     void Update()
@@ -47,8 +49,8 @@ public class SafeGimmick : MonoBehaviour
                         open = true;
 
                         StartCoroutine(text.Cotest());
-                        key.gameObject.SetActive(true);
-
+                        key.transform.position = new Vector3(-29, -2.8f, 10.9f);
+                        //key.gameObject.SetActive(true);
                     }
                 }
             }
