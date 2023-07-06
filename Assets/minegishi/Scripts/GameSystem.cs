@@ -28,23 +28,19 @@ public class GameSystem : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "Door") //ドアをクリック
                     {
-                        Debug.Log("シーン移動");
                         SceneManager.LoadScene("HiddenRoom");
                     }
                     if (hit.collider.gameObject.name == "VaultRoom") //ドアをクリック
                     {
-                        Debug.Log("シーン移動");
                         SceneManager.LoadScene("VaultRoom");
                     }
                     if (hit.collider.gameObject.name == "GreatHallDoor") //ドアをクリック
                     {
-                        Debug.Log("シーン移動");
                         SceneManager.LoadScene("SampleScene");
                     }
 
                     if (hit.collider.gameObject.name == "ExitDoor" && ExitDoor.open) //ドアをクリック
                     {
-                        Debug.Log("シーン移動");
                         SceneManager.LoadScene("entranceScene");
                     }
                 }

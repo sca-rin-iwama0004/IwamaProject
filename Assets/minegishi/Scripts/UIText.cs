@@ -28,7 +28,7 @@ public class UIText : MonoBehaviour
     // 通常会話用のテキストを生成する関数
     public void DrawText(string name, string text)
     {
-        nameText.text = name + "\n「";
+        nameText.text = name;
         StartCoroutine("CoDrawText", text + "」");
     }
 

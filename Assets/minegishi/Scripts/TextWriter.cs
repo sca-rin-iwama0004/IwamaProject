@@ -44,8 +44,105 @@ public class TextWriter : MonoBehaviour
     // 文章を表示させるコルーチン
     public IEnumerator Cotest()
     {
-        if (bookshelf.gimmicktext)
-        { //本棚のテキスト
+        //if (prison.prisonkeytext == true) //牢屋の鍵のテキスト
+        //{
+        //    uitext.DrawText("牢屋の鍵を手に入れた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    prisonkeytext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    Destroy(prisonkey);
+        //}
+
+        //if(prison.prisontext == true && prison.prisonkey == false) //牢屋のテキスト
+        //{
+        //    uitext.DrawText("鍵がかかっている");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    prisontext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+        //else if(prison.prisontext == true && prison.prisonkey == true)
+        //{
+        //    uitext.DrawText("牢屋の鍵を使った");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("鍵が開いた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    prisontext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
+        //if (meat.meattext == true) //肉のテキスト
+        //{
+        //    uitext.DrawText("肉を手に入れた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    meattext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    Destroy(meat);
+        //}
+
+        //if (rod.rodtext == true) //棒のテキスト
+        //{
+        //    uitext.DrawText("棒を手に入れた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    rodtext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    Destroy(rod);
+        //}
+
+        //if(juwel.juweltext == true) //宝石のテキスト
+        //{
+        //    uitext.DrawText("宝石を手に入れた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    juweltext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    Destroy(juwel);
+        //}
+
+        //if(kinko.kinkotext == true && kinko.open == false) //右の部屋の金庫のテキスト
+        //{
+        //    uitext.DrawText("鍵がかかっている");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    kinkotext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+        //else if(kinko.kinkotext == true && kinko.open == true)
+        //{
+        //    uitext.DrawText("宝石を３つはめた");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("鍵が開いた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    kinkotext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
+        //if(safekey.keytext == true) //金庫の鍵のテキスト
+        //{
+        //    uitext.DrawText("金庫の鍵を手に入れた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    safekey.keytext =false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    Destroy(safekey);
+        //}
+
+        if (bookshelf.gimmicktext) //本棚のテキスト
+        { 
             uitext.DrawText("本棚が動いた");
             yield return StartCoroutine("Skip");
             uitext.DrawText("扉が出てきた");
@@ -56,6 +153,15 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
+        //if(safe.safetext == true && safekey == false)
+        //{
+        //    uitext.DrawText("鍵がかかっている");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    safe.safetext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
         if (safe.safetext == true) //金庫のテキスト
         {
             uitext.DrawText("金庫が開いた");
@@ -67,7 +173,7 @@ public class TextWriter : MonoBehaviour
         }
 
         GameObject exitKey = GameObject.Find("ExitKey");
-        if (exitkey.exitKeyText == true)
+        if (exitkey.exitKeyText == true) //出口の鍵のテキスト
         {
             uitext.DrawText("出口の鍵を手に入れた");
             yield return StartCoroutine("Skip");
@@ -77,9 +183,8 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
             Destroy(exitKey);
         }
-
         
-        if (exitdoor.opentext == true && ExitKey.exitKey == false)
+        if (exitdoor.opentext == true && ExitKey.exitKey == false)　//出口のテキスト
         {
             uitext.DrawText("鍵がかかっている");
             yield return StartCoroutine("Skip");
@@ -100,9 +205,5 @@ public class TextWriter : MonoBehaviour
             exitdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
         }
-        /*if(){
-         * uitext.DrawText("")
-         * }
-         */
     }  
 }
