@@ -6,20 +6,13 @@ public class TextWriter : MonoBehaviour
 {
     public UIText uitext;
     GameManager GM;
-    BookShelf bookshelf;
-    SafeGimmick safe;
-    ExitKey exitkey;
-    ExitDoor exitdoor;
+
 
     private static bool created = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
-        safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
-        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
-        exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
 
         if (!created)
         {
@@ -141,6 +134,7 @@ public class TextWriter : MonoBehaviour
         //    Destroy(safekey);
         //}
 
+        BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
         if (bookshelf.gimmicktext) //本棚のテキスト
         { 
             uitext.DrawText("本棚が動いた");
@@ -162,6 +156,7 @@ public class TextWriter : MonoBehaviour
         //    safe.safetext = false;
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
+        SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
         if (safe.safetext == true) //金庫のテキスト
         {
             uitext.DrawText("金庫が開いた");
@@ -172,6 +167,7 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
+        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
         GameObject exitKey = GameObject.Find("ExitKey");
         if (exitkey.exitKeyText == true) //出口の鍵のテキスト
         {
@@ -183,7 +179,8 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
             Destroy(exitKey);
         }
-        
+
+        ExitDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
         if (exitdoor.opentext == true && ExitKey.exitKey == false)　//出口のテキスト
         {
             uitext.DrawText("鍵がかかっている");
