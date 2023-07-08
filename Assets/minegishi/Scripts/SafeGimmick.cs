@@ -12,7 +12,7 @@ public class SafeGimmick : MonoBehaviour
     public bool safetext = false;
     public static bool open = false;
 
-    public TextWriter text;
+    TextWriter text;
     GameManager GM;
     ExitKey exitkey;
 
@@ -20,6 +20,7 @@ public class SafeGimmick : MonoBehaviour
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        text = GameObject.Find("Text").GetComponent<TextWriter>();
     }
 
     void Update()
@@ -43,8 +44,6 @@ public class SafeGimmick : MonoBehaviour
                         Debug.Log("open");
                         GM.PlayMode = GameManager.Mode.Text;
 
-                        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-                        
                         safetext = true;
                         open = true;
 

@@ -10,7 +10,18 @@ public class UIText : MonoBehaviour
     public bool playing = false;
     public float textSpeed = 0.1f;
 
-    void Start() { }
+    private static bool created = false;
+
+    void Start()
+    {
+        if (!created)
+        {
+            created = true;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this.gameObject);
+    }
 
     // クリックで次のページを表示させるための関数
     public bool IsClicked()

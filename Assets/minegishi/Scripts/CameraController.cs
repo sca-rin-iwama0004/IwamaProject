@@ -4,53 +4,46 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-　　　　
-    // X軸周りのカメラ回転速度.
-    [SerializeField] float xRotationSpeed = 5f;
-    // Y軸周りのカメラ回転速度.
-    [SerializeField] float yRotationSpeed = 5f;
-　　　　
-    // マウスクリックを開始した位置.
-    Vector3 startMousePosition = Vector3.zero;
-    // クリック開始時点でのカメラの角度.
-    Vector3 startCameraRotation = Vector3.zero;
 
-　　　　
+    public GameObject playerObject;         //追尾 オブジェクト
+    public Vector2 rotationSpeed;           //回転速度
+    private Vector3 lastMousePosition;      //最後のマウス座標
+    private Vector3 lastTargetPosition;     //最後の追尾オブジェクトの座標
+
+
+    private float zoom;
+
+    void Start()
+    {
+        zoom = 0.0f;
+        lastMousePosition = Input.mousePosition;
+        lastTargetPosition = playerObject.transform.position;
+    }
 
     void Update()
     {
-        // クリックの開始.
-        if (Input.GetMouseButtonDown(1) == true)
-        {
-            // マウスの位置とカメラの角度を保管.
-            startMousePosition = Input.mousePosition;
-            startCameraRotation = Camera.main.gameObject.transform.localRotation.eulerAngles;
-        }
-
-        // クリック中（ドラッグ）.
-        if (Input.GetMouseButton(1) == true)
-        {
-            // 現時点のマウス位置を取得.
-            var currentMousePosition = Input.mousePosition;
-            // クリック開始位置からの差分を算出.
-            var def = (currentMousePosition - startMousePosition);
-            // 現在のカメラ角度.
-            var currentCameraRotation = Camera.main.transform.localRotation.eulerAngles;
-            // 回転角度を算出.
-            currentCameraRotation.x = startCameraRotation.x + (-def.y * xRotationSpeed * 0.01f);
-            currentCameraRotation.y = startCameraRotation.y + (def.x * yRotationSpeed * 0.01f);
-            // カメラに適用.
-            Camera.main.transform.localRotation = Quaternion.Euler(currentCameraRotation);
-        }
-
-        // クリック終了.
-        if (Input.GetMouseButtonUp(1) == true)
-        {
-            // 保管した値をリセット.
-            startMousePosition = Vector3.zero;
-            startCameraRotation = Vector3.zero;
-        }
+        Rotate();
     }
-　　　　
 
+
+    void Rotate()
+    {
+        transform.position += playerObject.transform.position - lastTargetPosition;
+        lastTargetPosition = playerObject.transform.position;
+
+        if (Input.GetMouseButton(1))
+        {
+
+            Vector3 nowMouseValue = Input.mousePosition - lastMousePosition;
+
+            var newAngle = Vector3.zero;
+            newAngle.x = rotationSpeed.x * nowMouseValue.x;
+            newAngle.y = rotationSpeed.y * nowMouseValue.y;
+
+            transform.RotateAround(playerObject.transform.position, Vector3.up, newAngle.x);
+            transform.RotateAround(playerObject.transform.position, transform.right, -newAngle.y);
+        }
+
+        lastMousePosition = Input.mousePosition;
+    }
 }
