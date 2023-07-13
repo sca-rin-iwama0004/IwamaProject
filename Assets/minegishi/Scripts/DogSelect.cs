@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DogSelect : MonoBehaviour
 {
     [SerializeField] GameObject Button;
+    GameObject select3;
 
     public bool selectText1 = false; //犬の選択肢：そのまま通り過ぎる
     public bool selectText2 = false; //犬の選択肢：何もしない

@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1414318240405181780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ RectTransform:
   m_LocalScale: {x: 4.874457, y: 4.7184014, z: 1}
   m_Children:
   - {fileID: 7199955066925257265}
-  m_Father: {fileID: 7284991630683792390}
+  m_Father: {fileID: 2181727023241318487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -196,7 +196,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4546111727578735684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 802893784339123492, guid: 0197fba7f30ce2c4eb398c50bc519300,
+          type: 3}
+        m_MethodName: SelectButton1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &617416501817506163
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -389,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8889587364056051330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -402,7 +414,7 @@ RectTransform:
   m_LocalScale: {x: 4.874457, y: 4.7184014, z: 1}
   m_Children:
   - {fileID: 1614487397973686771}
-  m_Father: {fileID: 7284991630683792390}
+  m_Father: {fileID: 2181727023241318487}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -489,7 +501,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4682338449221258273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 802893784339123492, guid: 0197fba7f30ce2c4eb398c50bc519300,
+          type: 3}
+        m_MethodName: SelectButton3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6986386346192095811
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +970,7 @@ RectTransform:
   - {fileID: 7298201887514945059}
   - {fileID: 7298201885461084905}
   - {fileID: 7298201887104457966}
-  - {fileID: 7284991630683792390}
+  - {fileID: 2181727023241318487}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1061,7 +1085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7709697356678768888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1074,7 +1098,7 @@ RectTransform:
   m_LocalScale: {x: 4.874457, y: 4.7184014, z: 1}
   m_Children:
   - {fileID: 447361846099099774}
-  m_Father: {fileID: 7284991630683792390}
+  m_Father: {fileID: 2181727023241318487}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1161,8 +1185,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1754750278033278735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!1 &8615573239348709614
+      m_Calls:
+      - m_Target: {fileID: 802893784339123492, guid: 0197fba7f30ce2c4eb398c50bc519300,
+          type: 3}
+        m_MethodName: SelectButton2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &8364696502953911876
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1170,7 +1206,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7284991630683792390}
+  - component: {fileID: 2181727023241318487}
   m_Layer: 5
   m_Name: SelectButton
   m_TagString: Untagged
@@ -1178,14 +1214,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!224 &7284991630683792390
+--- !u!224 &2181727023241318487
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8615573239348709614}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 8364696502953911876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
