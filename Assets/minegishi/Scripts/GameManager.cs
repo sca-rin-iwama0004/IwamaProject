@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
     private bool juwel3Get = false;
 
     private bool rightKey = false;
+
+    private static bool GameStart = false;
+    public bool GameStartText = false;
+
 
     private void Awake()
     {
@@ -45,7 +50,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(SceneManager.GetActiveScene().name == "rouyaScene" && !GameStart)
+        {
+            PlayMode = GameManager.Mode.Text;
+
+            GameStart = true;
+            GameStartText = true;
+            TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+            StartCoroutine(text.Cotest());
+        }
+
     }
     // GameManagerのインスタンスを取得するプロパティ
     public static GameManager Instance
@@ -82,4 +96,6 @@ public class GameManager : MonoBehaviour
         get { return rightKey; }
         set { rightKey = value; }
     }
+
+    
 }

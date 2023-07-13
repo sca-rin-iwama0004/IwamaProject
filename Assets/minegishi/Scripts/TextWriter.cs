@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextWriter : MonoBehaviour
 {
@@ -37,6 +38,18 @@ public class TextWriter : MonoBehaviour
     // 文章を表示させるコルーチン
     public IEnumerator Cotest()
     {
+        if(GM.GameStartText == true) //ゲーム開始時のテキスト
+        {
+            uitext.DrawText("今日は主人が出かけているらしい");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("主人が帰ってくる前にこの屋敷から逃げ出そう！");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            GM.GameStartText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
+
         //if (prison.prisonkeytext == true) //牢屋の鍵のテキスト
         //{
         //    uitext.DrawText("牢屋の鍵を手に入れた");
@@ -201,6 +214,45 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText("");
             exitdoor.opentext = false;
             GM.PlayMode = GameManager.Mode.Play;
+        }
+
+        DogSelect dog = GameObject.Find("Text").GetComponent<DogSelect>();
+        if(dog.DogText == true) //犬に近づいたときのテキスト
+        {
+            uitext.DrawText("犬がいる。……眠っているようだ");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            StartCoroutine(dog.Selection());
+            dog.DogText = false;
+        }
+        if(dog.selectText1 == true) //そのまま通り過ぎるを選択
+        {
+            uitext.DrawText("足音を立てないようにそっと近づいた");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("……！！");
+
+            uitext.DrawText(" ");
+            SceneManager.LoadScene("gameoverScene");
+        }
+        else if(dog.selectText2 == true) //何もしないを選択
+        {
+            uitext.DrawText("下手に刺激しない方がいいだろう");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            GM.PlayMode = GameManager.Mode.Play;
+            dog.selectText2 = false;
+            dog.entrance = false;
+            SceneManager.LoadScene("SampleScene");
+        }
+        else if(dog.selectText3 == true) //生肉を投げるを選択
+        {
+            uitext.DrawText("主人公","「よし……！これで外に出られる！");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ", " ");
+            SceneManager.LoadScene("gameclearScene");
         }
     }  
 }

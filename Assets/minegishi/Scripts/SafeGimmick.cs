@@ -12,6 +12,7 @@ public class SafeGimmick : MonoBehaviour
     public bool safetext = false;
     public static bool open = false;
 
+
     TextWriter text;
     GameManager GM;
     ExitKey exitkey;

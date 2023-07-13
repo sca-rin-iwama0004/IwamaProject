@@ -12,6 +12,7 @@ public class UIText : MonoBehaviour
 
     private static bool created = false;
 
+
     void Start()
     {
         if (!created)
@@ -64,4 +65,6 @@ public class UIText : MonoBehaviour
         yield return 0;
         playing = false;
     }
+
+
 }
