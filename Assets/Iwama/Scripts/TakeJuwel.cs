@@ -15,7 +15,7 @@ public class TakeJuwel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+        GameManager.Instance.Juwel1Get = true;
     }
     void Update()
     {

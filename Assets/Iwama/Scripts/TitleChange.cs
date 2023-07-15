@@ -11,16 +11,15 @@ public class TitleChange : MonoBehaviour
     void Start()
     {
        // Debug.Log(GameManager.Instance.HappyEnd);
-        if (GameManager.Instance.HappyEnd)
-        {
-           happyTitle.SetActive(true);
-           defaltTitle.SetActive(false);
-        }
-        else
-        {
-            happyTitle.SetActive(false);
+       // if (GameManager.Instance.HappyEnd)
+      //  {
+         //  happyTitle.SetActive(true);
+      //     defaltTitle.SetActive(false);
+       // }
+      ///  {
+         //   happyTitle.SetActive(false);
             defaltTitle.SetActive(true);
-        }
+       // }
     }
 
     // Update is called once per frame

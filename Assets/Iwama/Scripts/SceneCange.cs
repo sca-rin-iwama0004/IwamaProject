@@ -33,7 +33,8 @@ public class SceneCange : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("rouyaScene");
+        SceneManager.LoadScene("SampleScene");
+        // SceneManager.LoadScene("rouyaScene");
     }
 
     public void RetryButton()

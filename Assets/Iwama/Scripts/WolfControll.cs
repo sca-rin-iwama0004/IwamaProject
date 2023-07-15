@@ -17,25 +17,7 @@ public class WolfControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //KeyではなくUIでtextを表示させ、押して選択するように変更する
-        if (Input.GetKey(KeyCode.Y))//肉をあげる
-        {
-            animator.SetBool("idle", false);
-            animator.SetBool("getFood",true);
-          
-            Invoke("SceneChange", 3);
-            gameClear = true;
-        }
-        if (Input.GetKey(KeyCode.N))//このまま出る
-        {
-            //攻撃する
-            animator.SetBool("idle", false);
-            animator.SetBool("getFood", false);
-            gameOver = true;
-            //カメラをアップにしたい 0.27 2.79 -3.03
-            //20 0 0
-            Invoke("SceneChange",3);
-        }
+
     }
 
     void SceneChange()
@@ -44,6 +26,27 @@ public class WolfControll : MonoBehaviour
             SceneManager.LoadScene("gameoverScene");
         else if(gameClear)
             SceneManager.LoadScene("gameclearScene");
+    }
+
+    public void MeetButton()
+    {
+
+        animator.SetBool("idle", false);
+        animator.SetBool("getFood", true);
+
+        Invoke("SceneChange", 3);
+        gameClear = true;
+    }
+
+    public void NoMeetButton()
+    {
+        //攻撃する
+        animator.SetBool("idle", false);
+        animator.SetBool("getFood", false);
+        gameOver = true;
+        //カメラをアップにしたい 0.27 2.79 -3.03
+        //20 0 0
+        Invoke("SceneChange", 3);
     }
 }
 //カメラ通常　0、4.07、-3.73
