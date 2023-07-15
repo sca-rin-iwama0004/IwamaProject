@@ -41,7 +41,7 @@ public class UIText : MonoBehaviour
     public void DrawText(string name, string text)
     {
         nameText.text = name;
-        StartCoroutine("CoDrawText", text + "」");
+        StartCoroutine("CoDrawText", text);
     }
 
     // テキストがヌルヌル出てくるためのコルーチン
