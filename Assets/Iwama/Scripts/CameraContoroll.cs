@@ -1,35 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraContoroll : MonoBehaviour
 {
-    public GameObject mainCamera;
-    public GameObject subCamera;
+    [SerializeField] GameObject mainC;
+    [SerializeField] GameObject potC;//ポットのカメラ
+    [SerializeField] GameObject passC;//パスワードパネルのカメラ
+    [SerializeField] GameObject passB;//パスワードのボタン
+    [SerializeField] GameObject closeB;//閉じる(×)ボタン
+    [SerializeField] GameObject textB;//詳しく調べるボタン
+    Ray ray;
+
+    bool passOn = false;
 
     // Start is called before the first frame update
     void Start()
     {
-       mainCamera = GameObject.Find("MainCamera");
-       subCamera = GameObject.Find("SubCamera");
-
-       subCamera.SetActive(false);
+       closeB.SetActive(false);
+       potC.SetActive(false);
+        textB.SetActive(false);
+        passC.SetActive(false);
+       passB.SetActive(false);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))//詳しく見るボタン(カメラアップする)
+        if (Input.GetMouseButtonDown(0))
         {
-            mainCamera.SetActive(false);
-            subCamera.SetActive(true);
-        }
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
 
-        //カメラがアップの時(boolでもいい？)
-        if (Input.GetKey(KeyCode.X)&& subCamera.activeInHierarchy)//×(戻る)ボタン
-        {
-            mainCamera.SetActive(true);
-            subCamera.SetActive(false);
+            int potMask = 1 << 7;//ポッドに触れたとき
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, potMask))
+            {
+                mainC.SetActive(false);
+                potC.SetActive(true);
+                closeB.SetActive(true);
+                textB.SetActive(true);
+            }
+
+            int passMask = 1 << 9;//パスワードパネルに触れたとき
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, passMask) && !passOn)
+            {
+                mainC.SetActive(false);
+                passC.SetActive(true);
+                passB.SetActive(true);
+                closeB.SetActive(true);
+                passOn = true;//これは要る？
+            }
         }
+    }
+
+   public void CloseButton()//閉じる(×)を押したとき
+    {
+        closeB.SetActive(false);
+        mainC.SetActive(true);
+        potC.SetActive(false);
+        passC.SetActive(false);
+        passB.SetActive(false);
+        textB.SetActive(false);
+        passOn = false;
+      
     }
 }
