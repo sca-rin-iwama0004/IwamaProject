@@ -17,5 +17,4 @@ public class KinkoCheck : MonoBehaviour
             keykaijo = true;
             }
     }
-    //GameManager‚Ç‚¤‚â‚Á‚Ä‚Â‚©‚¤‚©
   }

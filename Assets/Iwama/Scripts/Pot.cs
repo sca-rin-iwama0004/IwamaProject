@@ -5,10 +5,9 @@ using UnityEngine;
 public class Pot : MonoBehaviour
 {
     bool Moveing = false;//カメラが動いているか
- //   bool nozoku = false;//Aボタン押されたか
+    bool search = false;//詳しく調べるを押しているか
  
     public GameObject mainCamera;
-    bool A_Destroy = false;
 
     void Start()
     {
@@ -18,34 +17,7 @@ public class Pot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //メインカメラが非アクティブ状態だったとき
-        if (mainCamera.activeSelf == false)
-        {
-            //選択肢(中をのぞく)が表示されたとき
-            if (Input.GetKey(KeyCode.C))
-            {
-                //if (!Moveing && !nozoku)
-                if (!Moveing )
-                    StartCoroutine("Rotate");
-                     Moveing = true;
-            }
-
-            /*
-            if (nozoku)//宝石を取るを押したとき
-            {
-                if (Input.GetKey(KeyCode.D) && !A_Destroy)
-                {
-                    GameManager.Instance.JuwelCount++;
-                    Destroy(Juwel);
-                    Debug.Log(GameManager.Instance.JuwelCount);
-                    A_Destroy = true;
-                    GameManager.Instance.Juwel2Get = true;
-                }
-            }
-           
-            */
-        }
-        
+         
     }
 
     IEnumerator Rotate()
@@ -57,9 +29,15 @@ public class Pot : MonoBehaviour
             //一度きりの処理、制御
         }
         Moveing = false;
-      //  nozoku = true;
-        
+        search = true; 
     }
- }
 
-//RotateをmainCameraのときは作動しないようにしたい。
+    public void searchButton()//更に調べるを押したとき
+    {
+        if (!Moveing && !search)
+        {
+            StartCoroutine("Rotate");
+            Moveing = true;
+        }
+    }
+}
