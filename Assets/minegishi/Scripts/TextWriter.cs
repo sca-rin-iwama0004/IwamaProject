@@ -147,7 +147,7 @@ public class TextWriter : MonoBehaviour
         //    Destroy(safekey);
         //}
 
-        BookShelf bookshelf = GameObject.Find("bookcase").GetComponent<BookShelf>();
+        BookShelf bookshelf = GameObject.Find("BookShelf").GetComponent<BookShelf>();
         if (bookshelf.gimmicktext) //本棚のテキスト
         { 
             uitext.DrawText("本棚が動いた");
@@ -248,7 +248,7 @@ public class TextWriter : MonoBehaviour
         }
         else if(dog.selectText3 == true) //生肉を投げるを選択
         {
-            uitext.DrawText("主人公", "「よし……！これで外に出られる！」");
+            uitext.DrawText("主人公","「よし……！これで外に出られる！");
             yield return StartCoroutine("Skip");
 
             uitext.DrawText(" ", " ");
