@@ -49,7 +49,7 @@ public class SafeGimmick : MonoBehaviour
                         open = true;
 
                         StartCoroutine(text.Cotest());
-                        key.transform.position = new Vector3(-29, -2.8f, 10.9f);
+                        key.transform.position = new Vector3(-29, -2.8f, 14.2f);
                         //key.gameObject.SetActive(true);
                     }
                 }
