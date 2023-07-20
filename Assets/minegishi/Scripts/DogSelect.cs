@@ -35,14 +35,14 @@ public class DogSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "HiddenRoom" && entrance == false)
-        {
-            GM.PlayMode = GameManager.Mode.Text;
-            entrance = true;
-            DogText = true;
-            TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-            StartCoroutine(text.Cotest());
-        }
+        //if (SceneManager.GetActiveScene().name == "HiddenRoom" && entrance == false)
+        //{
+        //    GM.PlayMode = GameManager.Mode.Text;
+        //    entrance = true;
+        //    DogText = true;
+        //    TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+        //    StartCoroutine(text.Cotest());
+        //}
     }
 
     public IEnumerator Selection()

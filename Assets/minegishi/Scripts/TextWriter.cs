@@ -115,6 +115,84 @@ public class TextWriter : MonoBehaviour
         //    Destroy(juwel);
         //}
 
+        //if(statue.statuetext == true) //動かせない銅像のテキスト
+        //{
+        //    uitext.DrawText("像だ、もう一つの像と向かい合っている");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    statue.statuetext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+        //if(statue.moveStatueText == true) //動かせる銅像のテキスト
+        //{
+        //    uitext.DrawText("像だ、……よく見るとボタンが付いていて動かせそうだ");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    statue.moveSatatueText = false;
+        //}
+        //if(statue.opentext == true) //銅像が向かい合った時
+        //{
+        //    uitext.DrawText("近くの部屋が開いたようだ");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    Statue.opentext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
+        //if(pot.pottext == true) //壺のテキスト
+        //{
+        //    uitext.DrawText("壺だ。良い品物に見える。");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    pot.pottext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
+        //if(manual.manualtext == true) //看守用マニュアルのテキスト
+        //{
+        //    uitext.DrawText("どうやら看守の設定などが書いてある本のようだ。");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("最後のページに看守を止めるためのパスワードが書いてある。");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("〇〇〇〇……、覚えておこう。");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    manual.manualtext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
+        //if(pas.pastext = true) //パスワードパネルのテキスト
+        //{
+        //    uitext.DrawText("何かの機械がある。４桁の数字を入れるみたいだ。");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    pas.pastext = false;
+        //}
+        //if(pas.anstext == true && pas.ans == false) //パスワードが不正解の時
+        //{
+        //    uitext.DrawText("……何も起きない");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    pas.anstext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+        //else if(pas.anstext == true && pas.ans == true) //パスワードが正解の時
+        //{
+        //    uitext.DrawText("これで看守は止まったはずだ");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    pas.anstext = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //}
+
         //if(kinko.kinkotext == true && kinko.open == false) //右の部屋の金庫のテキスト
         //{
         //    uitext.DrawText("鍵がかかっている");
