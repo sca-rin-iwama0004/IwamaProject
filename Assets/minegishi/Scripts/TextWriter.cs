@@ -238,6 +238,22 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
+        Kanaria kanaria = GameObject.Find("kanaria").GetComponent<Kanaria>();
+        if (kanaria.kanariaText)
+        {
+            uitext.DrawText("カナリアが囚われている");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("カナリアを助けた");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("カナリア", "「助けてくれてありがとう！」");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ", " ");
+            kanaria.kanariaText = false;
+            kanaria.transform.position = new Vector3(-16.75f, -10, 8);
+            GM.PlayMode = GameManager.Mode.Play;
+        }
+
         //if(safe.safetext == true && safekey == false)
         //{
         //    uitext.DrawText("鍵がかかっている");
