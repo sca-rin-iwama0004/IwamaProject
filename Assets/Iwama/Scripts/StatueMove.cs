@@ -9,6 +9,7 @@ public class StatueMove : MonoBehaviour
     public Transform target;//視線の対象となるオブジェクト
     public float maxDistance = 100f;//視点を判定する最大距離
     public bool isLookingAtTarget = false;//銅像同士の目が合っているか
+   [SerializeField] GameObject Light;//目があったときのライト
 
     bool Moveing = false;
     public AudioClip sound;
@@ -24,6 +25,7 @@ public class StatueMove : MonoBehaviour
        if (GameManager.Instance.RightKey)
        {
             MoveObj.transform.Rotate(0,-90,0);
+            Light.SetActive(true);
        }
 
         audioSource = GetComponent<AudioSource>();
@@ -98,6 +100,7 @@ public class StatueMove : MonoBehaviour
         if (isLookingAtTarget)
         {
             GameManager.Instance.RightKey = true;
+            Light.SetActive(true);
         }
         else
         {
