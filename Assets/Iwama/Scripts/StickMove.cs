@@ -9,6 +9,10 @@ public class StickMove : MonoBehaviour
     private Vector3 offset; // マウスクリック位置とオブジェクト位置のオフセット
     [SerializeField] GameObject key;
     [SerializeField] GameObject Portao;
+    [SerializeField] GameObject doorCollider;
+    [SerializeField] GameObject stick;
+
+    public Camera specificCamera;
 
     void OnMouseDown()
     {
@@ -39,17 +43,19 @@ public class StickMove : MonoBehaviour
     {
         // マウスのスクリーン座標をワールド座標に変換
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.transform.position.z;
-        return Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = specificCamera.transform.position.z;
+        return specificCamera.ScreenToWorldPoint(mousePosition);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Key")
+        if (other.gameObject.tag == "Key")
         {
             Debug.Log("鍵を入手");
             key.SetActive(false);
             Portao.SetActive(false);
+            doorCollider.SetActive(false);
+            stick.SetActive(false);
             GameManager.Instance.GreathellKey = true;
             Debug.Log(GameManager.Instance.GreathellKey);
         }
