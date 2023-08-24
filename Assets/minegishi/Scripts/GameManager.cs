@@ -16,12 +16,17 @@ public class GameManager : MonoBehaviour
     }
     public Mode PlayMode;
 
-    private int juwelCount = 0;
+    private int juwelCount = 3;
     private bool juwel1Get = false;
     private bool juwel2Get = false;
     private bool juwel3Get = false;
 
     private bool rightKey = false;
+
+    private bool stickGet = false;
+    private bool meatGet = false;
+    private bool greathellKey = false;//大広間の鍵
+
 
     private static bool GameStart = false;
     public bool GameStartText = false;
@@ -29,12 +34,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             //最初のGameManagerインスタンスを設定する
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }else
+        }
+        else
         {
             //既にインスタンスが存在するため、重複したGameManagerを破壊
             Destroy(this.gameObject);
@@ -50,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "rouyaScene" && !GameStart)
+        if (SceneManager.GetActiveScene().name == "rouyaScene" && !GameStart)
         {
             PlayMode = GameManager.Mode.Text;
 
@@ -97,5 +103,21 @@ public class GameManager : MonoBehaviour
         set { rightKey = value; }
     }
 
-    
+    public bool StickGet
+    {
+        get { return stickGet; }
+        set { stickGet = value; }
+    }
+
+    public bool MeatGet
+    {
+        get { return meatGet; }
+        set { meatGet = value; }
+    }
+
+    public bool GreathellKey
+    {
+        get { return greathellKey; }
+        set { greathellKey = value; }
+    }
 }
