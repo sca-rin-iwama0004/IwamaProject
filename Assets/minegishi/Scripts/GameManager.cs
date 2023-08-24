@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     }
     public Mode PlayMode;
 
-    private int juwelCount = 3;
+    private int juwelCount = 0;
     private bool juwel1Get = false;
     private bool juwel2Get = false;
     private bool juwel3Get = false;
