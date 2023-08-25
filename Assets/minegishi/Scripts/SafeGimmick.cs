@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafeGimmick : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject Drawer;
     private Vector3 safePos;
 
     [SerializeField] GameObject key;
@@ -48,12 +49,22 @@ public class SafeGimmick : MonoBehaviour
                         safetext = true;
                         open = true;
 
+                        StartCoroutine("DrawerOpen");
                         StartCoroutine(text.Cotest());
-                        key.transform.position = new Vector3(-29, -2.8f, 14.2f);
+                        //key.transform.position = new Vector3(-29, -2.8f, 14.2f);
                         //key.gameObject.SetActive(true);
                     }
                 }
             }
+        }
+    }
+
+    IEnumerator DrawerOpen()
+    {
+        for (int move = 0; move < 30; move++)
+        {
+            Drawer.transform.Translate(0, -0.03f, 0);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

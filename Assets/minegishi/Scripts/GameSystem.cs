@@ -13,10 +13,11 @@ public class GameSystem : MonoBehaviour
         ExitDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
     }
 
-    
+
     void Update()
     {
-        if(GM.PlayMode == GameManager.Mode.Play) { 
+        if (GM.PlayMode == GameManager.Mode.Play)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 //clickedGameObject = null;
@@ -34,7 +35,24 @@ public class GameSystem : MonoBehaviour
                     {
                         SceneManager.LoadScene("VaultRoom");
                     }
-                    if (hit.collider.gameObject.name == "GreatHallDoor") //ドアをクリック
+                    if (hit.collider.gameObject.name == "HallDoor") //ドアをクリック
+                    {
+                        SceneManager.LoadScene("SampleScene");
+                    }
+                    //追加、大広間から右部屋
+                    if (hit.collider.gameObject.name == "RightRoom" && GameManager.Instance.RightKey) //ドアをクリック
+                    {
+                        SceneManager.LoadScene("RightroomScene");
+                    }
+
+                    //追加、牢屋から大広間
+                    if (hit.collider.gameObject.name == "GreatHallDoor" && GameManager.Instance.GreathellKey) //ドアをクリック
+                    {
+                        SceneManager.LoadScene("SampleScene");
+                    }
+
+                    //追加、右部屋から大広間
+                    if (hit.collider.gameObject.name == "LeftDoor")
                     {
                         SceneManager.LoadScene("SampleScene");
                     }
@@ -44,6 +62,7 @@ public class GameSystem : MonoBehaviour
                         SceneManager.LoadScene("entranceScene");
                     }
                 }
+
             }
         }
     }
