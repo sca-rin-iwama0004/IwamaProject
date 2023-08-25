@@ -38,7 +38,6 @@ public class FlagReset : MonoBehaviour
             BookShelf.gimmick = false;
             PasswordPanel1.ans = false;
             GameManager.GameStart = false;
-            GameManager.Instance.KanariaRescue = false;
 
             timer.timeMinutes = 5;
         }

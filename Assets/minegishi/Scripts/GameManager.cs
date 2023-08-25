@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     public bool GameStartText = false;
     public bool robotText = false;
 
-
+    private bool happyEnd = false;
+    private bool gameClear = false;
 
     private void Awake()
     {
@@ -48,6 +49,32 @@ public class GameManager : MonoBehaviour
             //既にインスタンスが存在するため、重複したGameManagerを破壊
             Destroy(this.gameObject);
         }
+    }
+
+    public void ResetFlags()
+    {
+        juwelCount = 0;
+        juwel1Get = false;
+        juwel2Get = false;
+        juwel3Get = false;
+
+        rightKey = false;
+
+        stickGet = false;
+        meatGet = false;
+        greathellKey = false;//大広間の鍵
+
+        kanariaRescue = false;
+
+        GameStart = false;
+        GameStartText = false;
+
+    }
+
+    public void ResultResetFlags()
+    {
+        happyEnd = false;
+        gameClear = false;
     }
 
     void Start()
@@ -137,5 +164,17 @@ public class GameManager : MonoBehaviour
     {
         get { return kanariaRescue; }
         set { kanariaRescue = value; }
+    }
+
+    public bool HappyEnd
+    {
+        get { return happyEnd; }
+        set { happyEnd = value; }
+    }
+
+    public bool GameClear
+    {
+        get { return gameClear; }
+        set { gameClear = value; }
     }
 }
