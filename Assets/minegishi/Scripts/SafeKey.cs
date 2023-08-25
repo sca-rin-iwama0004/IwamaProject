@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitKey : MonoBehaviour
+public class SafeKey : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    public Camera specificCamera;
 
-    private Vector3 exitkeyPos;
+    private Vector3 safekeyPos;
 
-    public static bool exitKey　= false;
-    public bool exitKeyText = false;
-    public static bool exitKeyUsed = false;
+    public static bool safeKey = false;
+    public bool safeKeyText = false;
+    public static bool safeKeyUsed = false;
 
     GameManager GM;
     TextWriter text;
@@ -20,27 +21,27 @@ public class ExitKey : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    
     void Update()
     {
         Transform myTransform = this.transform;
-        exitkeyPos = myTransform.position;
+        safekeyPos = myTransform.position;
         Vector3 playerpos = player.transform.position;　//playerの座標        
-        float dis = Vector3.Distance(exitkeyPos, playerpos);
+        float dis = Vector3.Distance(safekeyPos, playerpos);
 
-        if (GM.PlayMode == GameManager.Mode.Play) { 
+        if (GM.PlayMode == GameManager.Mode.Play)
+        {
             if (Input.GetMouseButtonDown(0))
             {
 
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = specificCamera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "ExitKey" && dis <= 9) //出口の鍵をクリック
+                    if (hit.collider.gameObject.name == "SafeKey") //金庫の鍵をクリック
                     {
-                        exitKey = true;
-                        exitKeyText = true;
+                        safeKey = true;
+                        safeKeyText = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
@@ -48,10 +49,10 @@ public class ExitKey : MonoBehaviour
                     }
                 }
             }
-            if (SafeGimmick.open == true && exitKey == false)
-            {
-                this.gameObject.SetActive(true);
-            }
+            //if (SafeGimmick.open == true && safeKey == false)
+            //{
+            //    this.gameObject.SetActive(true);
+            //}
         }
     }
 }

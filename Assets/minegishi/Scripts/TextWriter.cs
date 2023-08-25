@@ -217,16 +217,17 @@ public class TextWriter : MonoBehaviour
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
 
-        //if(safekey.keytext == true) //金庫の鍵のテキスト
-        //{
-        //    uitext.DrawText("金庫の鍵を手に入れた");
-        //    yield return StartCoroutine("Skip");
+        SafeKey safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
+        if (safekey.safeKeyText == true) //金庫の鍵のテキスト
+        {
+            uitext.DrawText("金庫の鍵を手に入れた");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    safekey.keytext =false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //    Destroy(safekey);
-        //}
+            uitext.DrawText(" ");
+            safekey.safeKeyText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            safekey.transform.position = new Vector3(10000, 10000, 10000);
+        }
 
         BookShelf bookshelf = GameObject.Find("bookcase").GetComponent<BookShelf>();
         if (bookshelf.gimmicktext) //本棚のテキスト

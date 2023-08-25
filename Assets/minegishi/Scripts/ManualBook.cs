@@ -13,7 +13,7 @@ public class ManualBook : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+        
     }
 
     void Update()
@@ -33,11 +33,12 @@ public class ManualBook : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "ManualBook" && dis <= 9)
+                    if (hit.collider.gameObject.name == "ManualBook" && dis <= 49)
                     {
                         GM.PlayMode = GameManager.Mode.Text;
                         manualtext = true;
 
+                        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());
                     }
                 }
