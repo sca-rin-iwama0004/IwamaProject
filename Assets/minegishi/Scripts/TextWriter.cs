@@ -169,32 +169,25 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        //if(pas.pastext = true) //パスワードパネルのテキスト
-        //{
-        //    uitext.DrawText("何かの機械がある。４桁の数字を入れるみたいだ。");
-        //    yield return StartCoroutine("Skip");
+        PasswordPanel1 pas = GameObject.Find("ImagePanel").GetComponent<PasswordPanel1>();
+        if (pas.anstext == true && PasswordPanel1.ans == false) //パスワードが不正解の時
+        {
+            uitext.DrawText("……何も起きない");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    pas.pastext = false;
-        //}
-        //if(pas.anstext == true && pas.ans == false) //パスワードが不正解の時
-        //{
-        //    uitext.DrawText("……何も起きない");
-        //    yield return StartCoroutine("Skip");
+            uitext.DrawText(" ");
+            pas.anstext = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
+        if (pas.anstext == true && PasswordPanel1.ans == true) //パスワードが正解の時
+        {
+            uitext.DrawText("これで看守は止まったはずだ");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    pas.anstext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
-        //else if(pas.anstext == true && pas.ans == true) //パスワードが正解の時
-        //{
-        //    uitext.DrawText("これで看守は止まったはずだ");
-        //    yield return StartCoroutine("Skip");
-
-        //    uitext.DrawText(" ");
-        //    pas.anstext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
+            uitext.DrawText(" ");
+            pas.anstext = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
 
         //if(kinko.kinkotext == true && kinko.open == false) //右の部屋の金庫のテキスト
         //{
@@ -229,6 +222,20 @@ public class TextWriter : MonoBehaviour
             safekey.transform.position = new Vector3(10000, 10000, 10000);
         }
 
+        //RobotText robot = GameObject.Find("Robot").GetComponent<RobotText>();
+        if (GM.robotText) //ロボットのテキスト
+        {
+            uitext.DrawText("看守", "脱走者ハッケン");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText(" ", "看守に見つかってしまった！");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            GM.robotText = false;
+            GM.PlayMode = GameManager.Mode.end;
+            SceneManager.LoadScene("gameoverScene");
+        }
+
         BookShelf bookshelf = GameObject.Find("bookcase").GetComponent<BookShelf>();
         if (bookshelf.gimmicktext) //本棚のテキスト
         { 
@@ -258,17 +265,17 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        //if(safe.safetext == true && safekey == false)
-        //{
-        //    uitext.DrawText("鍵がかかっている");
-        //    yield return StartCoroutine("Skip");
-
-        //    uitext.DrawText(" ");
-        //    safe.safetext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
         SafeGimmick safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
-        if (safe.safetext == true) //金庫のテキスト
+        if (safe.safetext == true && SafeKey.safeKey == false)
+        {
+            uitext.DrawText("鍵がかかっている");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            safe.safetext = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
+        else if (safe.safetext == true && SafeKey.safeKey == true) //金庫のテキスト
         {
             uitext.DrawText("金庫が開いた");
             yield return StartCoroutine("Skip");

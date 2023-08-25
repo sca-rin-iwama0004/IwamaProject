@@ -38,7 +38,7 @@ public class ManualBook : MonoBehaviour
                         GM.PlayMode = GameManager.Mode.Text;
                         manualtext = true;
 
-                        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+                        text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());
                     }
                 }

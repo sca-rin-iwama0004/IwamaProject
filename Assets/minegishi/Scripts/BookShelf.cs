@@ -8,7 +8,7 @@ public class BookShelf : MonoBehaviour
 
     private Vector3 bookshelfpos;
 
-    static bool gimmick = false;
+    public static bool gimmick = false;
     public bool gimmicktext = false;
 
     public TimerCounter timer;

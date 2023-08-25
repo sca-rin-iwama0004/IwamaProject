@@ -6,6 +6,12 @@ using UnityEngine.Events;
 
 public class PasswordPanel1 : MonoBehaviour
 {
+    GameManager GM;
+    TextWriter text;
+
+    public bool anstext = false;
+    public static bool ans = false;
+
     // アルファベットの入力を入れる配列
     [SerializeField] string[] input;
     // 正解のアルファベットを入れる配列
@@ -21,6 +27,8 @@ public class PasswordPanel1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //text = GameObject.Find("Text").GetComponent<TextWriter>();
         //開始時に初期化をする
         resetInput();
     }
@@ -58,9 +66,15 @@ public class PasswordPanel1 : MonoBehaviour
         // 正解チェックを行いイベントを発生させる
         if (checkPassword())
         {
+            ans = true;
             Debug.Log("OK");
          //   someEvent.Invoke();
         }
+
+        GM.PlayMode = GameManager.Mode.Text;
+        text = GameObject.Find("Text").GetComponent<TextWriter>();
+        anstext = true;
+        StartCoroutine(text.Cotest());
         resetInput();
     }
 

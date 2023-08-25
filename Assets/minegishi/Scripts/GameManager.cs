@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
 
     private bool kanariaRescue = false;
 
-    private static bool GameStart = false;
+    public static bool GameStart = false;
     public bool GameStartText = false;
+    public bool robotText = false;
 
 
 
@@ -64,6 +65,15 @@ public class GameManager : MonoBehaviour
 
             GameStart = true;
             GameStartText = true;
+            TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+            StartCoroutine(text.Cotest());
+        }
+
+        if (SceneManager.GetActiveScene().name == "VaultRoom" && PasswordPanel1.ans == false)
+        {
+            PlayMode = GameManager.Mode.Text;
+
+            robotText = true;
             TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
             StartCoroutine(text.Cotest());
         }
@@ -128,10 +138,4 @@ public class GameManager : MonoBehaviour
         get { return kanariaRescue; }
         set { kanariaRescue = value; }
     }
-
-    /*
-     * KanariaスクリプトのKanariaRescue = trueの変更
-     *   GameManager.Instance.KanariaRescue = true;
-     * 
-     */
 }

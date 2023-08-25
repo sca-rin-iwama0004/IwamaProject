@@ -16,12 +16,12 @@ public class SafeGimmick : MonoBehaviour
 
     TextWriter text;
     GameManager GM;
-    ExitKey exitkey;
+    SafeKey safekey;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
         text = GameObject.Find("Text").GetComponent<TextWriter>();
     }
 
@@ -43,14 +43,17 @@ public class SafeGimmick : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "Safe" && !open && dis <= 9) //‹àŒÉ‚ðƒNƒŠƒbƒN
                     {
-                        Debug.Log("open");
-                        GM.PlayMode = GameManager.Mode.Text;
-
                         safetext = true;
-                        open = true;
+                        GM.PlayMode = GameManager.Mode.Text;
 
                         StartCoroutine("DrawerOpen");
                         StartCoroutine(text.Cotest());
+                        if (SafeKey.safeKey)
+                        {
+                            open = true;
+                            SafeKey.safeKeyUsed = true;
+                        }
+                        
                         //key.transform.position = new Vector3(-29, -2.8f, 14.2f);
                         //key.gameObject.SetActive(true);
                     }
