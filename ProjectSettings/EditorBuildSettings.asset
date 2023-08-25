@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Iwama/Scenes/gameclearScene.unity
     guid: 34a95948e313a04458a178c5b752d981
+  - enabled: 1
+    path: Assets/Iwama/Scenes/HappyEndScene.unity
+    guid: 7e5da9af050c0d84f87ed96f531e7756
   m_configObjects: {}
