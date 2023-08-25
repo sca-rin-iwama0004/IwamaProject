@@ -1,30 +1,27 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kanaria : MonoBehaviour
+public class ManualBook : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    private Vector3 kanariaPos;
-
-    public static bool KanariaRescue = false;
-    public bool kanariaText = false;
+    private Vector3 manualPos;
+    public bool manualtext = false;
 
     GameManager GM;
     TextWriter text;
-
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        text = GameObject.Find("Text").GetComponent<TextWriter>();
+        TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
     }
 
     void Update()
     {
         Transform myTransform = this.transform;
-        kanariaPos = myTransform.position;
-        Vector3 playerpos = player.transform.position;　//playerの座標
-        float dis = Vector3.Distance(kanariaPos, playerpos);
+        manualPos = myTransform.position;
+        Vector3 playerpos = player.transform.position;�@//player�̍��W
+        float dis = Vector3.Distance(manualPos, playerpos);
 
         if (GM.PlayMode == GameManager.Mode.Play)
         {
@@ -36,16 +33,12 @@ public class Kanaria : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "kanaria" && dis <= 9) //カナリアをクリック
+                    if (hit.collider.gameObject.name == "ManualBook" && dis <= 9)
                     {
-                        Debug.Log("kanaria");
                         GM.PlayMode = GameManager.Mode.Text;
-
-                        KanariaRescue = true;
-                        kanariaText = true;
+                        manualtext = true;
 
                         StartCoroutine(text.Cotest());
-                        
                     }
                 }
             }

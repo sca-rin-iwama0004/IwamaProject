@@ -152,19 +152,22 @@ public class TextWriter : MonoBehaviour
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
 
-        //if(manual.manualtext == true) //看守用マニュアルのテキスト
-        //{
-        //    uitext.DrawText("どうやら看守の設定などが書いてある本のようだ。");
-        //    yield return StartCoroutine("Skip");
-        //    uitext.DrawText("最後のページに看守を止めるためのパスワードが書いてある。");
-        //    yield return StartCoroutine("Skip");
-        //    uitext.DrawText("〇〇〇〇……、覚えておこう。");
-        //    yield return StartCoroutine("Skip");
+        ManualBook manual = GameObject.Find("ManualBook").GetComponent<ManualBook>();
+        if (manual.manualtext == true) //看守用マニュアルのテキスト
+        {
+            uitext.DrawText("本棚の中から看守用マニュアルという本があった。");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("どうやら看守の設定などが書いてあるようだ。");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("最後のページに看守を止めるためのパスワードが書いてある。");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("3054……、覚えておこう。");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    manual.manualtext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
+            uitext.DrawText(" ");
+            manual.manualtext = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
 
         //if(pas.pastext = true) //パスワードパネルのテキスト
         //{
