@@ -10,16 +10,17 @@ public class TitleChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // Debug.Log(GameManager.Instance.HappyEnd);
-       // if (GameManager.Instance.HappyEnd)
-      //  {
-         //  happyTitle.SetActive(true);
-      //     defaltTitle.SetActive(false);
-       // }
-      ///  {
-         //   happyTitle.SetActive(false);
-            defaltTitle.SetActive(true);
-       // }
+       
+       if (GameManager.Instance.HappyEnd || GameManager.Instance.GameClear)
+      {
+         happyTitle.SetActive(true);
+         defaltTitle.SetActive(false);
+       }
+       else
+      {
+        happyTitle.SetActive(false);
+        defaltTitle.SetActive(true);
+      }
     }
 
     // Update is called once per frame

@@ -8,9 +8,6 @@ public class WolfControll : MonoBehaviour
 {
    private Animator animator;//アニメーターコンポーネント取得
    public bool gameOver = false;
-   public bool gameClear = false;
-   public bool happyEnd = false;
-   //bool Canaria = true;//これはゲーマネに
 
     [SerializeField] GameObject clearButton;
     [SerializeField] GameObject badButton;
@@ -23,7 +20,7 @@ public class WolfControll : MonoBehaviour
 
         if (GameManager.Instance.MeatGet)
         {
-            //clearButton.SetActive(true);
+           clearButton.SetActive(true);
         }
     }
 
@@ -37,9 +34,9 @@ public class WolfControll : MonoBehaviour
     {
         if (gameOver)
             SceneManager.LoadScene("gameoverScene");
-        else if (happyEnd)
+        else if (GameManager.Instance.HappyEnd)
             SceneManager.LoadScene("HappyEndScene");
-        else if(gameClear)
+        else if(GameManager.Instance.GameClear)
             SceneManager.LoadScene("gameclearScene");
     }
 
@@ -52,11 +49,11 @@ public class WolfControll : MonoBehaviour
 
         if (GameManager.Instance.KanariaRescue)
         {
-            happyEnd = true;
+            GameManager.Instance.HappyEnd = true;
         }
         else
         {
-            gameClear = true;
+            GameManager.Instance.GameClear = true;
         }
 
         Invoke("SceneChange", 4);
