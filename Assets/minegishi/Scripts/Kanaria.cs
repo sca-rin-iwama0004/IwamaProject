@@ -7,7 +7,7 @@ public class Kanaria : MonoBehaviour
     [SerializeField] GameObject player;
     private Vector3 kanariaPos;
 
-    public static bool KanariaRescue = false;
+    //public static bool KanariaRescue = false;
     public bool kanariaText = false;
 
     GameManager GM;
@@ -41,7 +41,7 @@ public class Kanaria : MonoBehaviour
                         Debug.Log("kanaria");
                         GM.PlayMode = GameManager.Mode.Text;
 
-                        KanariaRescue = true;
+                        GameManager.Instance.KanariaRescue = true;
                         kanariaText = true;
 
                         StartCoroutine(text.Cotest());

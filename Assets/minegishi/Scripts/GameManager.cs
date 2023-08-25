@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
     private bool meatGet = false;
     private bool greathellKey = false;//大広間の鍵
 
+    private bool kanariaRescue = false;
 
     private static bool GameStart = false;
     public bool GameStartText = false;
+
 
 
     private void Awake()
@@ -120,4 +122,16 @@ public class GameManager : MonoBehaviour
         get { return greathellKey; }
         set { greathellKey = value; }
     }
+
+    public bool KanariaRescue
+    {
+        get { return kanariaRescue; }
+        set { kanariaRescue = value; }
+    }
+
+    /*
+     * KanariaスクリプトのKanariaRescue = trueの変更
+     *   GameManager.Instance.KanariaRescue = true;
+     * 
+     */
 }
