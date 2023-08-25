@@ -2,16 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class WolfControll : MonoBehaviour
 {
    private Animator animator;//アニメーターコンポーネント取得
    public bool gameOver = false;
    public bool gameClear = false;
+   public bool happyEnd = false;
+   //bool Canaria = true;//これはゲーマネに
+
+    [SerializeField] GameObject clearButton;
+    [SerializeField] GameObject badButton;
+    [SerializeField] GameObject Meat;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (GameManager.Instance.MeatGet)
+        {
+            //clearButton.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +37,8 @@ public class WolfControll : MonoBehaviour
     {
         if (gameOver)
             SceneManager.LoadScene("gameoverScene");
+        else if (happyEnd)
+            SceneManager.LoadScene("HappyEndScene");
         else if(gameClear)
             SceneManager.LoadScene("gameclearScene");
     }
@@ -32,10 +47,20 @@ public class WolfControll : MonoBehaviour
     {
 
         animator.SetBool("idle", false);
+        Meat.SetActive(true);
         animator.SetBool("getFood", true);
 
-        Invoke("SceneChange", 3);
-        gameClear = true;
+        if (GameManager.Instance.KanariaRescue)
+        {
+            happyEnd = true;
+        }
+        else
+        {
+            gameClear = true;
+        }
+
+        Invoke("SceneChange", 4);
+       
     }
 
     public void NoMeetButton()
