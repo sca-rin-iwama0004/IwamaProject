@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public static bool GameStart = false;
     public bool GameStartText = false;
+    public static bool robotEncounter = false;
     public bool robotText = false;
 
     private bool happyEnd = false;
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
         GameStart = false;
         GameStartText = false;
 
+        robotEncounter = false;
+
     }
 
     public void ResultResetFlags()
@@ -96,10 +99,12 @@ public class GameManager : MonoBehaviour
             StartCoroutine(text.Cotest());
         }
 
-        if (SceneManager.GetActiveScene().name == "VaultRoom" && PasswordPanel1.ans == false)
+        //PasswordPanel1 pas = GameObject.Find("ImagePanel").GetComponent<PasswordPanel1>();
+        if (SceneManager.GetActiveScene().name == "VaultRoom" && PasswordPanel1.ans == false && !robotEncounter)
         {
             PlayMode = GameManager.Mode.Text;
 
+            robotEncounter = true;
             robotText = true;
             TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
             StartCoroutine(text.Cotest());

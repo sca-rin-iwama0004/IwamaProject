@@ -9,6 +9,7 @@ public class CameraContoroll : MonoBehaviour
     [SerializeField] GameObject potC;//ポットのカメラ
     [SerializeField] GameObject passC;//パスワードパネルのカメラ
     [SerializeField] GameObject passB;//パスワードのボタン
+    [SerializeField] GameObject passD;//オブジェクトのダミー
     [SerializeField] GameObject closeB;//閉じる(×)ボタン
     [SerializeField] GameObject textB;//詳しく調べるボタン
     Ray ray;
@@ -22,6 +23,7 @@ public class CameraContoroll : MonoBehaviour
        potC.SetActive(false);
         textB.SetActive(false);
         passC.SetActive(false);
+        passD.SetActive(true); //テキスト表示させるため
        passB.SetActive(false);
       
     }
@@ -49,6 +51,7 @@ public class CameraContoroll : MonoBehaviour
                 mainC.SetActive(false);
                 passC.SetActive(true);
                 passB.SetActive(true);
+                passD.SetActive(false);
                 closeB.SetActive(true);
                 passOn = true;//passを打ち終わったか
             }
@@ -62,6 +65,7 @@ public class CameraContoroll : MonoBehaviour
         mainC.SetActive(true);
         potC.SetActive(false);
         passC.SetActive(false);
+        passD.SetActive(true);
         passB.SetActive(false);
         textB.SetActive(false);
         passOn = false;

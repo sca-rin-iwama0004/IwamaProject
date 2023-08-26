@@ -12,6 +12,8 @@ public class FlagReset : MonoBehaviour
     BookShelf bookshelf;
     PasswordPanel1 pas;
     TimerCounter timer;
+
+    public bool reset = false;
     void Start()
     {
         safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
@@ -29,6 +31,8 @@ public class FlagReset : MonoBehaviour
             SceneManager.GetActiveScene().name == "gameoverScene" || 
             SceneManager.GetActiveScene().name == "HappyEndScene")
         {
+            Debug.Log("reset");
+            reset = true;
             SafeGimmick.open = false;
             SafeKey.safeKey = false;
             SafeKey.safeKeyUsed = false;
@@ -37,9 +41,10 @@ public class FlagReset : MonoBehaviour
             ExitDoor.open = false;
             BookShelf.gimmick = false;
             PasswordPanel1.ans = false;
-            GameManager.GameStart = false;
+            //GameManager.GameStart = false;
 
-            timer.timeMinutes = 5;
+            //TimerCounter.timeSeconds = 300;
         }
+
     }
 }

@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         //金庫のカギを手に入れたら表示する
-        if(SafeKey.safeKey == true)
+        if (SafeKey.safeKey == true) 
         {
             safekeyImag.SetActive(true);
         }

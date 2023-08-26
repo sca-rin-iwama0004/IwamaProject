@@ -225,7 +225,6 @@ public class TextWriter : MonoBehaviour
         //RobotMove robot = GameObject.Find("Robot").GetComponent<RobotMove>();
         if (GM.robotText) //ロボットのテキスト
         {
-            Debug.Log("robot");
             uitext.DrawText("看守", "脱走者ハッケン");
             yield return StartCoroutine("Skip");
             uitext.DrawText(" ", "看守に見つかってしまった！");

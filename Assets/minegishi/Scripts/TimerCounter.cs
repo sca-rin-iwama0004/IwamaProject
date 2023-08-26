@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class TimerCounter : MonoBehaviour
 {
-    public float timeMinutes;
-    [SerializeField] float timeSeconds;
+
+    [SerializeField] float timeMinutes;
+    public float timeSeconds;
     [SerializeField] Text timeText;
     [SerializeField] GameObject text;
     private static bool created = false;
