@@ -222,9 +222,10 @@ public class TextWriter : MonoBehaviour
             safekey.transform.position = new Vector3(10000, 10000, 10000);
         }
 
-        //RobotText robot = GameObject.Find("Robot").GetComponent<RobotText>();
+        //RobotMove robot = GameObject.Find("Robot").GetComponent<RobotMove>();
         if (GM.robotText) //ロボットのテキスト
         {
+            Debug.Log("robot");
             uitext.DrawText("看守", "脱走者ハッケン");
             yield return StartCoroutine("Skip");
             uitext.DrawText(" ", "看守に見つかってしまった！");
