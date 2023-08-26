@@ -46,12 +46,12 @@ public class SafeGimmick : MonoBehaviour
                         safetext = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
-                        StartCoroutine("DrawerOpen");
                         StartCoroutine(text.Cotest());
                         if (SafeKey.safeKey)
                         {
                             open = true;
                             SafeKey.safeKeyUsed = true;
+                            StartCoroutine("DrawerOpen");
                         }
                         
                         //key.transform.position = new Vector3(-29, -2.8f, 14.2f);
