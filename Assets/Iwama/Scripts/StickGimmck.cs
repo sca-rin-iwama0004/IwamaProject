@@ -25,6 +25,7 @@ public class StickGimmck : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //ray = specificCamera.ScreenPointToRay(Input.mousePosition);
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = new RaycastHit();
 

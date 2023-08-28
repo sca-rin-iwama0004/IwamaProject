@@ -9,7 +9,7 @@ public class StickMove : MonoBehaviour
     private Vector3 offset; // マウスクリック位置とオブジェクト位置のオフセット
     [SerializeField] GameObject key;
     [SerializeField] GameObject Portao;
-    [SerializeField] GameObject doorCollider;
+    [SerializeField] GameObject collision;//当たり判定の箱
     [SerializeField] GameObject stick;
 
     public Camera specificCamera;
@@ -54,7 +54,7 @@ public class StickMove : MonoBehaviour
             Debug.Log("鍵を入手");
             key.SetActive(false);
             Portao.SetActive(false);
-            doorCollider.SetActive(false);
+            collision.SetActive(false);
             stick.SetActive(false);
             GameManager.Instance.GreathellKey = true;
             Debug.Log(GameManager.Instance.GreathellKey);
