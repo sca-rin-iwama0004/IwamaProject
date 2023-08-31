@@ -44,7 +44,8 @@ public class WolfControll : MonoBehaviour
     {
 
         animator.SetBool("idle", false);
-        Meat.SetActive(true);
+        //Meat.SetActive(true);
+        Meat.transform.position = new Vector3(0.39f, 0.69f, -1.51f);
         animator.SetBool("getFood", true);
 
         if (GameManager.Instance.KanariaRescue)

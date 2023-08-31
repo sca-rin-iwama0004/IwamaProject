@@ -82,7 +82,6 @@ public class TextWriter : MonoBehaviour
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
 
-        Debug.Log("Text");
         Meat meat = GameObject.Find("Meat").GetComponent<Meat>();
         if (meat.meatText == true) //肉のテキスト
         {

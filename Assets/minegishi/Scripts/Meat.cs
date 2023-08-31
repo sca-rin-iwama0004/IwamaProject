@@ -27,9 +27,9 @@ public class Meat : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "Meat")
+                    if (hit.collider.gameObject.name == "Meat" && GameManager.Instance.MeatGet == false)
                     {
-                        GameManager.Instance.StickGet = true;
+                        GameManager.Instance.MeatGet = true;
                         meatText = true;
                         GM.PlayMode = GameManager.Mode.Text;
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
