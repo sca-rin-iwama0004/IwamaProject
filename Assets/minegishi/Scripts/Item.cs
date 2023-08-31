@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    [SerializeField] GameObject meatImag;
+    [SerializeField] GameObject stickImag;
     [SerializeField] GameObject safekeyImag;
     [SerializeField] GameObject exitkeyImag;
 
@@ -20,6 +22,28 @@ public class Item : MonoBehaviour
 
     void Update()
     {
+        //肉を手に入れたら表示する
+        if (GameManager.Instance.MeatGet)
+        {
+            meatImag.SetActive(true);
+        }
+        //肉を使ったら半透明にする
+        if (GameManager.Instance.MeatUsed)
+        {
+            meatImag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
+        //棒を手に入れたら表示する
+        if (GameManager.Instance.StickGet)
+        {
+            stickImag.SetActive(true);
+        }
+        //棒を使ったら半透明にする
+        if (GameManager.Instance.StickUsed)
+        {
+            stickImag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
         //金庫のカギを手に入れたら表示する
         if (SafeKey.safeKey == true) 
         {

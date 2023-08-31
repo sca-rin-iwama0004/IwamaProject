@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     private bool rightKey = false;
 
     private bool stickGet = false;
+    private bool stickUsed = false;
     private bool meatGet = false;
+    private bool meatUsed = false;
     private bool greathellKey = false;//大広間の鍵
 
     private bool kanariaRescue = false;
@@ -62,7 +64,9 @@ public class GameManager : MonoBehaviour
         rightKey = false;
 
         stickGet = false;
+        stickUsed = false;
         meatGet = false;
+        meatUsed = false;
         greathellKey = false;//大広間の鍵
 
         kanariaRescue = false;
@@ -89,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "rouyaScene" && !GameStart)
+        if (SceneManager.GetActiveScene().name == "rouyaScene" && !GameStart) //ゲーム開始時のテキスト
         {
             PlayMode = GameManager.Mode.Text;
 
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
         }
 
         //PasswordPanel1 pas = GameObject.Find("ImagePanel").GetComponent<PasswordPanel1>();
-        if (SceneManager.GetActiveScene().name == "VaultRoom" && PasswordPanel1.ans == false && !robotEncounter)
+        if (SceneManager.GetActiveScene().name == "VaultRoom" && PasswordPanel1.ans == false && !robotEncounter) //パスワードを入力せずに部屋に入るとテキスト表示
         {
             PlayMode = GameManager.Mode.Text;
 
@@ -153,10 +157,20 @@ public class GameManager : MonoBehaviour
         set { stickGet = value; }
     }
 
+    public bool StickUsed {
+        get { return stickUsed;}
+        set { stickUsed = value;}
+    }
+
     public bool MeatGet
     {
         get { return meatGet; }
         set { meatGet = value; }
+    }
+
+    public bool MeatUsed {
+        get { return meatUsed;}
+        set { meatUsed = value;}
     }
 
     public bool GreathellKey

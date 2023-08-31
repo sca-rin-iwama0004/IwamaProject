@@ -81,28 +81,32 @@ public class TextWriter : MonoBehaviour
         //    prisontext = false;
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
+        Debug.Log("text");
+        Meat meat = GameObject.Find("Meat").GetComponent<Meat>();
+        if (meat.meatText == true) //肉のテキスト
+        {
+            uitext.DrawText("肉を手に入れた");
+            yield return StartCoroutine("Skip");
 
-        //if (meat.meattext == true) //肉のテキスト
-        //{
-        //    uitext.DrawText("肉を手に入れた");
-        //    yield return StartCoroutine("Skip");
+            uitext.DrawText(" ");
+            meat.meatText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            //Destroy(meat);
+            meat.transform.position = new Vector3(0, -5, 0); //画面外に移動
+        }
 
-        //    uitext.DrawText(" ");
-        //    meattext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //    Destroy(meat);
-        //}
+        Stick stick = GameObject.Find("Stick").GetComponent<Stick>();
+        if (stick.stickText == true) //棒のテキスト
+        {
+            uitext.DrawText("棒を手に入れた");
+            yield return StartCoroutine("Skip");
 
-        //if (rod.rodtext == true) //棒のテキスト
-        //{
-        //    uitext.DrawText("棒を手に入れた");
-        //    yield return StartCoroutine("Skip");
-
-        //    uitext.DrawText(" ");
-        //    rodtext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //    Destroy(rod);
-        //}
+            uitext.DrawText(" ");
+            stick.stickText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            //Destroy(rod);
+            stick.transform.position = new Vector3(-2.6f, -5, -2);　//画面外に移動
+        }
 
         //if(juwel.juweltext == true) //宝石のテキスト
         //{
@@ -296,7 +300,7 @@ public class TextWriter : MonoBehaviour
             exitkey.exitKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
             //Destroy(exitKey);
-            exitkey.transform.position = new Vector3(-29, -20.8f, 10.9f);
+            exitkey.transform.position = new Vector3(-29, -20.8f, 10.9f); //画面外に移動
         }
 
         ExitDoor exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
@@ -322,43 +326,43 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        DogSelect dog = GameObject.Find("Text").GetComponent<DogSelect>();
-        if(dog.DogText == true) //犬に近づいたときのテキスト
-        {
-            uitext.DrawText("犬がいる。……眠っているようだ");
-            yield return StartCoroutine("Skip");
+        //DogSelect dog = GameObject.Find("Text").GetComponent<DogSelect>();
+        //if(dog.DogText == true) //犬に近づいたときのテキスト
+        //{
+        //    uitext.DrawText("犬がいる。……眠っているようだ");
+        //    yield return StartCoroutine("Skip");
 
-            uitext.DrawText(" ");
-            StartCoroutine(dog.Selection());
-            dog.DogText = false;
-        }
-        if(dog.selectText1 == true) //そのまま通り過ぎるを選択
-        {
-            uitext.DrawText("足音を立てないようにそっと近づいた");
-            yield return StartCoroutine("Skip");
-            uitext.DrawText("……！！");
+        //    uitext.DrawText(" ");
+        //    StartCoroutine(dog.Selection());
+        //    dog.DogText = false;
+        //}
+        //if(dog.selectText1 == true) //そのまま通り過ぎるを選択
+        //{
+        //    uitext.DrawText("足音を立てないようにそっと近づいた");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("……！！");
 
-            uitext.DrawText(" ");
-            SceneManager.LoadScene("gameoverScene");
-        }
-        else if(dog.selectText2 == true) //何もしないを選択
-        {
-            uitext.DrawText("下手に刺激しない方がいいだろう");
-            yield return StartCoroutine("Skip");
+        //    uitext.DrawText(" ");
+        //    SceneManager.LoadScene("gameoverScene");
+        //}
+        //else if(dog.selectText2 == true) //何もしないを選択
+        //{
+        //    uitext.DrawText("下手に刺激しない方がいいだろう");
+        //    yield return StartCoroutine("Skip");
 
-            uitext.DrawText(" ");
-            GM.PlayMode = GameManager.Mode.Play;
-            dog.selectText2 = false;
-            dog.entrance = false;
-            SceneManager.LoadScene("SampleScene");
-        }
-        else if(dog.selectText3 == true) //生肉を投げるを選択
-        {
-            uitext.DrawText("主人公", "「よし……！これで外に出られる！」");
-            yield return StartCoroutine("Skip");
+        //    uitext.DrawText(" ");
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    dog.selectText2 = false;
+        //    dog.entrance = false;
+        //    SceneManager.LoadScene("SampleScene");
+        //}
+        //else if(dog.selectText3 == true) //生肉を投げるを選択
+        //{
+        //    uitext.DrawText("主人公", "「よし……！これで外に出られる！」");
+        //    yield return StartCoroutine("Skip");
 
-            uitext.DrawText(" ", " ");
-            SceneManager.LoadScene("gameclearScene");
-        }
+        //    uitext.DrawText(" ", " ");
+        //    SceneManager.LoadScene("gameclearScene");
+        //}
     }  
 }
