@@ -81,7 +81,7 @@ public class TextWriter : MonoBehaviour
         //    prisontext = false;
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
-        Debug.Log("text");
+
         Meat meat = GameObject.Find("Meat").GetComponent<Meat>();
         if (meat.meatText == true) //肉のテキスト
         {
