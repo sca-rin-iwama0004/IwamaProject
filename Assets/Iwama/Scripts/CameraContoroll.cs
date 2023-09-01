@@ -36,8 +36,9 @@ public class CameraContoroll : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = new RaycastHit();
 
+            float maxRayDistance = 5f; // Rayが飛ぶ最大の距離
             int potMask = 1 << 7;//ポッドに触れたとき
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, potMask))
+            if (Physics.Raycast(ray, out hit, maxRayDistance, potMask))
             {
                 mainC.SetActive(false);
                 potC.SetActive(true);
@@ -46,7 +47,7 @@ public class CameraContoroll : MonoBehaviour
             }
 
             int passMask = 1 << 9;//パスワードパネルに触れたとき
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, passMask) && !passOn)
+            if (Physics.Raycast(ray, out hit, maxRayDistance, passMask) && !passOn)
             {
                 mainC.SetActive(false);
                 passC.SetActive(true);

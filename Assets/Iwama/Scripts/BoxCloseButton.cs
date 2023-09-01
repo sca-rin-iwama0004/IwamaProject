@@ -24,9 +24,10 @@ public class BoxCloseButton : MonoBehaviour
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = new RaycastHit();
+            float maxRayDistance = 5f; // Ray‚ª”ò‚ÔÅ‘å‚Ì‹——£
 
             int potMask = 1 << 7;//ˆø‚«o‚µ‚ÉG‚ê‚½‚Æ‚«
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, potMask))
+            if (Physics.Raycast(ray, out hit, maxRayDistance, potMask))
             {
                 mainC.SetActive(false);
                 potC.SetActive(true);

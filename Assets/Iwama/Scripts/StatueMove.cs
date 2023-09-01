@@ -38,9 +38,10 @@ public class StatueMove : MonoBehaviour
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = new RaycastHit();
+            float maxRayDistance = 5f; // Ray‚ª”ò‚ÔÅ‘å‚Ì‹——£
             int mask = 1 << 6;//MoveButton‚É‚µ‚©ray‚ª“–‚½‚ç‚È‚¢‚æ‚¤‚É
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+            if (Physics.Raycast(ray, out hit, maxRayDistance, mask))
             {
                 if (!isLookingAtTarget && !GameManager.Instance.RightKey)
                 {

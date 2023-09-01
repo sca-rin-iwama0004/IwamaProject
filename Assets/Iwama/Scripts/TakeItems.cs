@@ -32,9 +32,10 @@ public class TakeItems : MonoBehaviour
                ray = specificCamera.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit hit = new RaycastHit();
+                float maxRayDistance = 1f; // Ray‚ª”ò‚ÔÅ‘å‚Ì‹——£
                 int mask = 1 << 6;//}‚©“÷‚É‚µ‚©ray‚ª“–‚½‚ç‚È‚¢‚æ‚¤‚É
 
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+                if (Physics.Raycast(ray, out hit, maxRayDistance, mask))
                 {
                     clickedGameObject = hit.collider.gameObject;
 
