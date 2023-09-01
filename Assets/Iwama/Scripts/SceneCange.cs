@@ -47,4 +47,8 @@ public class SceneCange : MonoBehaviour
         SceneManager.LoadScene("titleScene");
     }
 
+    public void ExplanationButton()
+    {
+        SceneManager.LoadScene("explanationScene");
+    }
 }

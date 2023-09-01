@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Iwama/Scenes/entranceScene.unity
     guid: 73be490bb966d5247a691a7a4f577078
   - enabled: 1
+    path: Assets/Iwama/Scenes/explanationScene.unity
+    guid: 5371a0eb9c764894bbbf3a7257576961
+  - enabled: 1
     path: Assets/Iwama/Scenes/gameoverScene.unity
     guid: e78a3cceb37de01479f7cca37dbba500
   - enabled: 1
