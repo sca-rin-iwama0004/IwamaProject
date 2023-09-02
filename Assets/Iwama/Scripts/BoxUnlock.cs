@@ -62,7 +62,7 @@ public class BoxUnlock : MonoBehaviour
 
     IEnumerator DrawerOpen()
     {
-        for (int move = 0; move < 90; move++)
+        for (int move = 0; move < 20; move++)
         {
             Drawer.transform.Translate(0,-0.03f,0);
             yield return new WaitForSeconds(0.01f);
