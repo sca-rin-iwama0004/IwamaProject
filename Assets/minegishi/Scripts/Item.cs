@@ -69,23 +69,23 @@ public class Item : MonoBehaviour
         }
 
         //金庫のカギを手に入れたら表示する
-        if (SafeKey.safeKey == true) 
+        if (GameManager.Instance.SafeKeyGet == true) 
         {
             safekeyImag.SetActive(true);
         }
         //金庫のカギを使ったら半透明にする
-        if(SafeKey.safeKeyUsed == true)
+        if(GameManager.Instance.SafeKeyUsed == true)
         {
             safekeyImag.GetComponent<CanvasGroup>().alpha = 0.3f;
         }
 
         //出口のカギを手に入れたら表示する
-        if(ExitKey.exitKey == true)
+        if(GameManager.Instance.ExitKeyGet == true)
         {
             exitkeyImag.SetActive(true);
         }
         //出口のカギを使ったら半透明にする
-        if (ExitKey.exitKeyUsed == true)
+        if (GameManager.Instance.ExitKeyUsed == true)
         {
             exitkeyImag.GetComponent<CanvasGroup>().alpha = 0.3f;
         } 

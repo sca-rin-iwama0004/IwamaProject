@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
-    public static bool open = false;
-    public bool opentext = false;
+    //public static ExitDoor instance = null;
+
+    //public static bool open = false;
+    //public bool opentext = false;
 
     GameManager GM;
-    TextWriter text;
+    //TextWriter text;
+
+    //private bool opentext = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        //ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
     }
 
 
@@ -29,21 +33,23 @@ public class ExitDoor : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "ExitDoor" && !open)
+                    if (hit.collider.gameObject.name == "ExitDoor" && !GameManager.Instance.ExitDoorOpen)
                     {
-                        opentext = true;
+                        GameManager.Instance.ExitDoorText = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());
-                        if (ExitKey.exitKey)
+                        if (GameManager.Instance.ExitKeyGet)
                         {
-                            open = true;
-                            ExitKey.exitKeyUsed = true;
+                            GameManager.Instance.ExitDoorOpen = true;
+                            GameManager.Instance.ExitKeyUsed = true;
                         }
                     }
                 }
             }
         }
     }
+
+
 }

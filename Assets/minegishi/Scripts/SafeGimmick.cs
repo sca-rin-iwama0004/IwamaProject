@@ -10,8 +10,8 @@ public class SafeGimmick : MonoBehaviour
 
     [SerializeField] GameObject key;
 
-    public bool safetext = false;
-    public static bool open = false;
+    //public bool safetext = false;
+    //public static bool open = false;
 
 
     TextWriter text;
@@ -41,16 +41,16 @@ public class SafeGimmick : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "Safe" && !open && dis <= 9) //金庫をクリック
+                    if (hit.collider.gameObject.name == "Safe" && !GameManager.Instance.SafeOpen && dis <= 9) //金庫をクリック
                     {
-                        safetext = true;
+                        GameManager.Instance.SafeText = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         StartCoroutine(text.Cotest());
-                        if (SafeKey.safeKey)
+                        if (GameManager.Instance.SafeKeyGet)
                         {
-                            open = true;
-                            SafeKey.safeKeyUsed = true;
+                            GameManager.Instance.SafeOpen = true;
+                            GameManager.Instance.SafeKeyUsed = true;
                             StartCoroutine("DrawerOpen");
                         }
                         

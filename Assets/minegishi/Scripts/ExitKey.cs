@@ -8,9 +8,9 @@ public class ExitKey : MonoBehaviour
 
     private Vector3 exitkeyPos;
 
-    public static bool exitKey　= false;
+    //public static bool exitKey　= false;
     public bool exitKeyText = false;
-    public static bool exitKeyUsed = false;
+    //public static bool exitKeyUsed = false;
 
     GameManager GM;
     TextWriter text;
@@ -39,8 +39,8 @@ public class ExitKey : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "ExitKey" && dis <= 9) //出口の鍵をクリック
                     {
-                        exitKey = true;
-                        exitKeyText = true;
+                        GameManager.Instance.ExitKeyGet = true;
+                        GameManager.Instance.ExitKeyText = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
@@ -48,10 +48,10 @@ public class ExitKey : MonoBehaviour
                     }
                 }
             }
-            if (SafeGimmick.open == true && exitKey == false)
-            {
-                this.gameObject.SetActive(true);
-            }
+            //if (SafeGimmick.open == true && exitKey == false)
+            //{
+            //    this.gameObject.SetActive(true);
+            //}
         }
     }
 }

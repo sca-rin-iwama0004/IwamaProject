@@ -9,9 +9,9 @@ public class SafeKey : MonoBehaviour
 
     private Vector3 safekeyPos;
 
-    public static bool safeKey = false;
-    public bool safeKeyText = false;
-    public static bool safeKeyUsed = false;
+    //public static bool safeKey = false;
+    //public bool safeKeyText = false;
+    //public static bool safeKeyUsed = false;
 
     GameManager GM;
     TextWriter text;
@@ -40,8 +40,8 @@ public class SafeKey : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "SafeKey") //‹àŒÉ‚ÌŒ®‚ðƒNƒŠƒbƒN
                     {
-                        safeKey = true;
-                        safeKeyText = true;
+                        GameManager.Instance.SafeKeyGet = true;
+                        GameManager.Instance.SafeKeyText = true;
                         GM.PlayMode = GameManager.Mode.Text;
 
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();

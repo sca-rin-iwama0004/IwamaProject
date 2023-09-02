@@ -57,7 +57,7 @@ public class GameSystem : MonoBehaviour
                         SceneManager.LoadScene("SampleScene");
                     }
 
-                    if (hit.collider.gameObject.name == "ExitDoor" && ExitDoor.open) //ドアをクリック
+                    if (hit.collider.gameObject.name == "ExitDoor" && GameManager.Instance.ExitDoorOpen) //ドアをクリック
                     {
                         SceneManager.LoadScene("entranceScene");
                     }
