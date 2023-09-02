@@ -19,25 +19,49 @@ public class GameManager : MonoBehaviour
     private int juwelCount = 0;
     private bool juwel1Get = false;
     private bool juwel1Used = false;
+    private bool juwel1Text = false;
     private bool juwel2Get = false;
     private bool juwel2Used = false;
+    private bool juwel2Text = false;
     private bool juwel3Get = false;
     private bool juwel3Used = false;
+    private bool juwel3Text = false;
 
     private bool rightKey = false;
 
     private bool stickGet = false;
     private bool stickUsed = false;
+    private bool stickText = false;
     private bool meatGet = false;
     private bool meatUsed = false;
+    private bool meatText = false;
     private bool greathellKey = false;//ëÂçLä‘ÇÃåÆ
 
+    private bool manualText = false;
+
     private bool kanariaRescue = false;
+    private bool kanariaText = false;
 
     public static bool GameStart = false;
     public bool GameStartText = false;
     public static bool robotEncounter = false;
     public bool robotText = false;
+
+    private bool safeKeyGet = false;
+    private bool safeKeyUsed = false;
+    private bool safeKeyText = false;
+
+    private bool safeOpen = false;
+    private bool safeText = false;
+
+    private bool bookshelfGimmick = false;
+    private bool bookshelfText = false;
+
+    private bool exitKeyGet = false;
+    private bool exitKeyUsed = false;
+    private bool exitKeyText = false;
+    private bool exitDoorOpen = false;
+    private bool exitDoorText = false;
 
     private bool happyEnd = false;
     private bool gameClear = false;
@@ -76,6 +100,12 @@ public class GameManager : MonoBehaviour
         greathellKey = false;//ëÂçLä‘ÇÃåÆ
 
         kanariaRescue = false;
+        safeKeyGet = false;
+        safeKeyUsed = false;
+        safeOpen = false;
+        bookshelfGimmick = false;
+
+        exitDoorOpen = false;
 
         GameStart = false;
         GameStartText = false;
@@ -144,6 +174,11 @@ public class GameManager : MonoBehaviour
         get { return juwel1Used;}
         set { juwel1Used = value;}
     }
+    public bool Juwel1Text
+    {
+        get { return juwel1Text;}
+        set { juwel1Text = value;}
+    }
 
     public bool Juwel2Get
     {
@@ -153,8 +188,13 @@ public class GameManager : MonoBehaviour
 
     public bool Juwel2Used
     {
-        get { return Juwel2Used;}
+        get { return juwel2Used;}
         set { juwel2Used = value;}
+    }
+    public bool Juwel2Text
+    {
+        get { return juwel2Text;}
+        set { juwel2Text = value;}
     }
 
     public bool Juwel3Get
@@ -168,6 +208,11 @@ public class GameManager : MonoBehaviour
         get { return juwel3Used;}
         set { juwel3Used = value;}
     }
+    public bool Juwel3Text
+    {
+        get { return juwel3Text;}
+        set { juwel3Text = value;}
+    }
 
     public bool RightKey
     {
@@ -180,10 +225,14 @@ public class GameManager : MonoBehaviour
         get { return stickGet; }
         set { stickGet = value; }
     }
-
     public bool StickUsed {
         get { return stickUsed;}
         set { stickUsed = value;}
+    }
+    public bool StickText
+    {
+        get { return stickText;}
+        set { stickText = value;}
     }
 
     public bool MeatGet
@@ -191,10 +240,14 @@ public class GameManager : MonoBehaviour
         get { return meatGet; }
         set { meatGet = value; }
     }
-
     public bool MeatUsed {
         get { return meatUsed;}
         set { meatUsed = value;}
+    }
+    public bool MeatText
+    {
+        get { return meatText;}
+        set { meatText = value;}
     }
 
     public bool GreathellKey
@@ -203,10 +256,88 @@ public class GameManager : MonoBehaviour
         set { greathellKey = value; }
     }
 
+    public bool SafeKeyGet
+    {
+        get { return safeKeyGet;}
+        set { safeKeyGet = value;}
+    }
+    public bool SafeKeyUsed
+    {
+        get { return safeKeyUsed;}
+        set { safeKeyUsed = value;}
+    }
+    public bool SafeKeyText
+    {
+        get { return safeKeyText;}
+        set { safeKeyText = value;}
+    }
+
+    public bool SafeOpen
+    {
+        get { return safeOpen;}
+        set { safeOpen = value;}
+    }
+    public bool SafeText
+    {
+        get { return safeText;}
+        set { safeText = value;}
+    }
+
+    public bool BookShelfGimmick
+    {
+        get { return bookshelfGimmick;}
+        set { bookshelfGimmick = value;}
+    }
+    public bool BookShelfText
+    {
+        get { return bookshelfText;}
+        set { bookshelfText = value;}
+    }
+
+    public bool ExitKeyGet
+    {
+        get { return exitKeyGet; }
+        set { exitKeyGet = value; }
+    }
+    public bool ExitKeyUsed
+    {
+        get { return exitKeyUsed; }
+        set { exitKeyUsed = value; }
+    }
+
+    public bool ExitKeyText
+    {
+        get { return exitKeyText; }
+        set { exitKeyText = value; }
+    }
+
+    public bool ExitDoorOpen
+    {
+        get { return exitDoorOpen; }
+        set { exitDoorOpen = value; }
+    }
+
+    public bool ExitDoorText
+    {
+        get { return exitDoorText;}
+        set { exitDoorText = value;}
+    }
+
+    public bool ManualText
+    {
+        get { return manualText; }
+        set { manualText = value;}
+    }
+
     public bool KanariaRescue
     {
         get { return kanariaRescue; }
         set { kanariaRescue = value; }
+    }
+    public bool KanariaText
+    {
+        get { return kanariaText;}
+        set { kanariaText = value;}
     }
 
     public bool HappyEnd

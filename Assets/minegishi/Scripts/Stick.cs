@@ -7,7 +7,7 @@ public class Stick : MonoBehaviour
     GameManager GM;
     TextWriter text;
 
-    public bool stickText = false;
+    //public bool stickText = false;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class Stick : MonoBehaviour
                     if (hit.collider.gameObject.name == "Stick")
                     {
                         GameManager.Instance.StickGet = true;
-                        stickText = true;
+                        GameManager.Instance.StickText = true;
                         GM.PlayMode = GameManager.Mode.Text;
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());

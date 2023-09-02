@@ -6,7 +6,7 @@ public class ManualBook : MonoBehaviour
 {
     [SerializeField] GameObject player;
     private Vector3 manualPos;
-    public bool manualtext = false;
+    //public bool manualtext = false;
 
     GameManager GM;
     TextWriter text;
@@ -36,7 +36,7 @@ public class ManualBook : MonoBehaviour
                     if (hit.collider.gameObject.name == "ManualBook" && dis <= 49)
                     {
                         GM.PlayMode = GameManager.Mode.Text;
-                        manualtext = true;
+                        GameManager.Instance.ManualText = true;
 
                         text = GameObject.Find("Text").GetComponent<TextWriter>();
                         StartCoroutine(text.Cotest());

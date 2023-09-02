@@ -8,7 +8,7 @@ public class Kanaria : MonoBehaviour
     private Vector3 kanariaPos;
 
     //public static bool KanariaRescue = false;
-    public bool kanariaText = false;
+    //public bool kanariaText = false;
 
     GameManager GM;
     TextWriter text;
@@ -42,7 +42,7 @@ public class Kanaria : MonoBehaviour
                         GM.PlayMode = GameManager.Mode.Text;
 
                         GameManager.Instance.KanariaRescue = true;
-                        kanariaText = true;
+                        GameManager.Instance.KanariaText = true;
 
                         StartCoroutine(text.Cotest());
                         

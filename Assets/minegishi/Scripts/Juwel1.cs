@@ -7,7 +7,7 @@ public class Juwel1 : MonoBehaviour
     GameManager GM;
     TextWriter text;
 
-    public bool juwel1Text = false;
+    //public bool juwel1Text = false;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class Juwel1 : MonoBehaviour
                     {
                         GameManager.Instance.Juwel1Get = true;
                         GameManager.Instance.JuwelCount++;
-                        juwel1Text = true;
+                        GameManager.Instance.Juwel1Text = true;
                         Debug.Log("juwel1");
                         GM.PlayMode = GameManager.Mode.Text;
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();

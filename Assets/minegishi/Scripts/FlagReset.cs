@@ -16,13 +16,13 @@ public class FlagReset : MonoBehaviour
     public bool reset = false;
     void Start()
     {
-        safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
-        safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
-        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
-        exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
-        bookshelf = GameObject.Find("bookcase").GetComponent<BookShelf>();
-        pas = GameObject.Find("ImagePanel").GetComponent<PasswordPanel1>();
-        timer = GameObject.Find("Timer").GetComponent<TimerCounter>();
+        //safe = GameObject.Find("Safe").GetComponent<SafeGimmick>();
+        //safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
+        //exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        //exitdoor = GameObject.Find("ExitDoor").GetComponent<ExitDoor>();
+        //bookshelf = GameObject.Find("bookcase").GetComponent<BookShelf>();
+        //pas = GameObject.Find("ImagePanel").GetComponent<PasswordPanel1>();
+        //timer = GameObject.Find("Timer").GetComponent<TimerCounter>();
     }
 
     void Update()
@@ -31,15 +31,15 @@ public class FlagReset : MonoBehaviour
             SceneManager.GetActiveScene().name == "gameoverScene" || 
             SceneManager.GetActiveScene().name == "HappyEndScene")
         {
-            Debug.Log("reset");
-            reset = true;
-            SafeGimmick.open = false;
-            SafeKey.safeKey = false;
-            SafeKey.safeKeyUsed = false;
-            ExitKey.exitKey = false;
-            ExitKey.exitKeyUsed = false;
-            ExitDoor.open = false;
-            BookShelf.gimmick = false;
+            //Debug.Log("reset");
+            //reset = true;
+            //SafeGimmick.open = false;
+            //SafeKey.safeKey = false;
+            //SafeKey.safeKeyUsed = false;
+            //ExitKey.exitKey = false;
+            //ExitKey.exitKeyUsed = false;
+            //ExitDoor.open = false;
+            //BookShelf.gimmick = false;
             PasswordPanel1.ans = false;
             //GameManager.GameStart = false;
 

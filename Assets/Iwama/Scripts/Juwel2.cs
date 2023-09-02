@@ -9,7 +9,7 @@ public class Juwel2 : MonoBehaviour
 
     public Camera specificCamera;
 
-    public bool juwel2Text = false;
+    //public bool juwel2Text = false;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class Juwel2 : MonoBehaviour
                     {
                         GameManager.Instance.Juwel2Get = true;
                         GameManager.Instance.JuwelCount++;
-                        juwel2Text = true;
+                        GameManager.Instance.Juwel2Text = true;
                         Debug.Log("juwel2");
                         GM.PlayMode = GameManager.Mode.Text;
                         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();

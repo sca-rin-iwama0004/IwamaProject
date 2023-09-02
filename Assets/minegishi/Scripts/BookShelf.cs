@@ -8,8 +8,8 @@ public class BookShelf : MonoBehaviour
 
     private Vector3 bookshelfpos;
 
-    public static bool gimmick = false;
-    public bool gimmicktext = false;
+    //public static bool gimmick = false;
+    //public bool gimmicktext = false;
 
     public TimerCounter timer;
     GameManager GM;
@@ -93,7 +93,7 @@ public class BookShelf : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "bookcase" && !gimmick && dis <= 9) //本棚をクリック＆ギミックが一度も作動していない時
+                    if (hit.collider.gameObject.name == "bookcase" && !GameManager.Instance.BookShelfGimmick && dis <= 9) //本棚をクリック＆ギミックが一度も作動していない時
                     {
                         GM.PlayMode = GameManager.Mode.Gimmick;
                         Debug.Log("gimmick");
@@ -132,8 +132,8 @@ public class BookShelf : MonoBehaviour
     }
     public void GimmickEnd()
     {
-        gimmick = true; //ギミックが作動した
-        gimmicktext = true; //テキスト表示
+        GameManager.Instance.BookShelfGimmick = true; //ギミックが作動した
+        GameManager.Instance.BookShelfText = true; //テキスト表示
         TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
         GM.PlayMode = GameManager.Mode.Text;
         StartCoroutine(text.Cotest());
