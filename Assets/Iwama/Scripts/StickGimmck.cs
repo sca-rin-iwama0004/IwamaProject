@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StickGimmck : MonoBehaviour
 {
+    GameManager GM;
+
     [SerializeField] GameObject mainC;
     [SerializeField] GameObject prisonC;//òSâÆÇÃÉJÉÅÉâ
     [SerializeField] GameObject closeB;//ï¬Ç∂ÇÈ(Å~)É{É^Éì
@@ -14,40 +16,47 @@ public class StickGimmck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         closeB.SetActive(false);
         prisonC.SetActive(false);
-        stick.SetActive(false);
+        //stick.SetActive(false);
         stickPosZ = stick.transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GM.PlayMode == GameManager.Mode.Play)
         {
-            //ray = specificCamera.ScreenPointToRay(Input.mousePosition);
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
-
-            int potMask = 1 << 7;//òSâÆÇ…êGÇÍÇΩÇ∆Ç´
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, potMask))
+            if (Input.GetMouseButtonDown(0))
             {
-                mainC.SetActive(false);
-                prisonC.SetActive(true);
-                closeB.SetActive(true);
+                //ray = specificCamera.ScreenPointToRay(Input.mousePosition);
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit = new RaycastHit();
 
-                if (GameManager.Instance.StickGet)
+                int potMask = 1 << 7;//òSâÆÇ…êGÇÍÇΩÇ∆Ç´
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, potMask))
                 {
-                    stick.SetActive(true);
+                    mainC.SetActive(false);
+                    prisonC.SetActive(true);
+                    closeB.SetActive(true);
+
+                    if (GameManager.Instance.StickGet)
+                    {
+                        stick.SetActive(true);
+                    }
                 }
             }
         }
-}
+    }
 
     public void CloseButton()//ï¬Ç∂ÇÈ(Å~)ÇâüÇµÇΩÇ∆Ç´
     {
-        closeB.SetActive(false);
-        mainC.SetActive(true);
-        prisonC.SetActive(false);
+        if (GM.PlayMode == GameManager.Mode.Play)
+        {
+            closeB.SetActive(false);
+            mainC.SetActive(true);
+            prisonC.SetActive(false);
+        }
     }
 }

@@ -6,8 +6,10 @@ public class Item : MonoBehaviour
 {
     [SerializeField] GameObject meatImag;
     [SerializeField] GameObject stickImag;
+    [SerializeField] GameObject rouyaKey;
     [SerializeField] GameObject juwel1Imag;
     [SerializeField] GameObject juwel2Imag;
+    [SerializeField] GameObject juwel3Imag;
     [SerializeField] GameObject safekeyImag;
     [SerializeField] GameObject exitkeyImag;
 
@@ -17,8 +19,8 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
-        exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
+        //safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
+        //exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
     }
 
 

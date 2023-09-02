@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     private bool meatGet = false;
     private bool meatUsed = false;
     private bool meatText = false;
-    private bool greathellKey = false;//‘åLŠÔ‚ÌŒ®
+    private bool rouyaKeyGet = false;//˜S‰®‚ÌŒ®
+    private bool rouyaKeyUsed = false;
+    private bool rouyaKeyText = false;
 
     private bool manualText = false;
 
@@ -97,7 +99,8 @@ public class GameManager : MonoBehaviour
         stickUsed = false;
         meatGet = false;
         meatUsed = false;
-        greathellKey = false;//‘åLŠÔ‚ÌŒ®
+        rouyaKeyGet = false;//‘åLŠÔ‚ÌŒ®
+        rouyaKeyUsed = false;
 
         kanariaRescue = false;
         safeKeyGet = false;
@@ -250,10 +253,20 @@ public class GameManager : MonoBehaviour
         set { meatText = value;}
     }
 
-    public bool GreathellKey
+    public bool RouyaKeyGet
     {
-        get { return greathellKey; }
-        set { greathellKey = value; }
+        get { return rouyaKeyGet; }
+        set { rouyaKeyGet = value; }
+    }
+    public bool RouyaKeyUsed
+    {
+        get { return rouyaKeyUsed;}
+        set { rouyaKeyUsed = value;}
+    }
+    public bool RouyaKeyText
+    {
+        get { return rouyaKeyText;}
+        set { rouyaKeyText = value;}
     }
 
     public bool SafeKeyGet

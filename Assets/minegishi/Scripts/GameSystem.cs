@@ -47,7 +47,7 @@ public class GameSystem : MonoBehaviour
                     }
 
                     //追加、牢屋から大広間
-                    if (hit.collider.gameObject.name == "GreatHallDoor" && GameManager.Instance.GreathellKey) //ドアをクリック
+                    if (hit.collider.gameObject.name == "GreatHallDoor" && GameManager.Instance.RouyaKeyGet) //ドアをクリック
                     {
                         SceneManager.LoadScene("SampleScene");
                     }

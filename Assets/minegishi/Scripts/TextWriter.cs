@@ -104,6 +104,7 @@ public class TextWriter : MonoBehaviour
         }
 
         Stick stick = GameObject.Find("Stick").GetComponent<Stick>();
+        StickGimmck stickgimmick = GameObject.Find("StickMove").GetComponent<StickGimmck>();
         if (GameManager.Instance.StickText == true) //棒のテキスト
         {
             uitext.DrawText("棒を手に入れた");
@@ -114,7 +115,21 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
             //Destroy(rod);
             stick.transform.position = new Vector3(-2.6f, -5, -2);　//画面外に移動
+            //stickgimmick.transform.position = new Vector3(2.849f, 0.562f, 4.361f);
         }
+
+        //if (GameManager.Instance.RouyaKeyText)
+        //{
+        //    uitext.DrawText("棒で牢屋の鍵を手繰り寄せた");
+        //    yield return StartCoroutine("Skip");
+        //    uitext.DrawText("牢屋が開いた");
+        //    yield return StartCoroutine("Skip");
+
+        //    uitext.DrawText(" ");
+        //    GameManager.Instance.RouyaKeyText = false;
+        //    GM.PlayMode = GameManager.Mode.Play;
+        //    stickgimmick.transform.position = new Vector3(2.7f, -5f, 3.5f);
+        //}
 
         Juwel1 juwel1 = GameObject.Find("Juwel1").GetComponent<Juwel1>();
         if (GameManager.Instance.Juwel1Text == true) //宝石1のテキスト

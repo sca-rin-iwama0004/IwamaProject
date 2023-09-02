@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StickMove : MonoBehaviour
 {
+    GameManager GM;
+    TextWriter text;
+
     private bool isDragging = false; // オブジェクトがドラッグ中かどうかのフラグ
     private Vector3 offset; // マウスクリック位置とオブジェクト位置のオフセット
     [SerializeField] GameObject key;
@@ -26,6 +29,11 @@ public class StickMove : MonoBehaviour
     {
         // マウスボタンが離されたときに呼ばれるイベント
         isDragging = false; // ドラッグフラグを無効にする
+    }
+
+    private void Start()
+    {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -56,8 +64,12 @@ public class StickMove : MonoBehaviour
             Portao.SetActive(false);
             collision.SetActive(false);
             stick.SetActive(false);
-            GameManager.Instance.GreathellKey = true;
-            Debug.Log(GameManager.Instance.GreathellKey);
+            GameManager.Instance.RouyaKeyGet = true;
+            GameManager.Instance.RouyaKeyText = true;
+            //GM.PlayMode = GameManager.Mode.Text;
+            //TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+            //StartCoroutine(text.Cotest());
+            Debug.Log(GameManager.Instance.RouyaKeyGet);
         }
     }
 }

@@ -16,12 +16,12 @@ public class SafeGimmick : MonoBehaviour
 
     TextWriter text;
     GameManager GM;
-    SafeKey safekey;
+    //SafeKey safekey;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
+        //safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
         text = GameObject.Find("Text").GetComponent<TextWriter>();
     }
 
