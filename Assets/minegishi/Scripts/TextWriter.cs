@@ -108,16 +108,29 @@ public class TextWriter : MonoBehaviour
             stick.transform.position = new Vector3(-2.6f, -5, -2);　//画面外に移動
         }
 
-        //if(juwel.juweltext == true) //宝石のテキスト
-        //{
-        //    uitext.DrawText("宝石を手に入れた");
-        //    yield return StartCoroutine("Skip");
+        Juwel1 juwel1 = GameObject.Find("Juwel1").GetComponent<Juwel1>();
+        if (juwel1.juwel1Text == true) //宝石1のテキスト
+        {
+            uitext.DrawText("宝石を手に入れた");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    juweltext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //    Destroy(juwel);
-        //}
+            uitext.DrawText(" ");
+            juwel1.juwel1Text = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            juwel1.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
+        }
+
+        Juwel2 juwel2 = GameObject.Find("Juwel2").GetComponent<Juwel2>();
+        if (juwel2.juwel2Text == true) //宝石1のテキスト
+        {
+            uitext.DrawText("宝石を手に入れた");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            juwel2.juwel2Text = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            juwel2.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
+        }
 
         //if(statue.statuetext == true) //動かせない銅像のテキスト
         //{

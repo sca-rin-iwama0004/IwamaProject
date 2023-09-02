@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
 
     private int juwelCount = 0;
     private bool juwel1Get = false;
+    private bool juwel1Used = false;
     private bool juwel2Get = false;
+    private bool juwel2Used = false;
     private bool juwel3Get = false;
+    private bool juwel3Used = false;
 
     private bool rightKey = false;
 
@@ -58,8 +61,11 @@ public class GameManager : MonoBehaviour
     {
         juwelCount = 0;
         juwel1Get = false;
+        juwel1Used = false;
         juwel2Get = false;
+        juwel2Used = false;
         juwel3Get = false;
+        juwel3Used = false;
 
         rightKey = false;
 
@@ -133,16 +139,34 @@ public class GameManager : MonoBehaviour
         set { juwel1Get = value; }
     }
 
+    public bool Juwel1Used
+    {
+        get { return juwel1Used;}
+        set { juwel1Used = value;}
+    }
+
     public bool Juwel2Get
     {
         get { return juwel2Get; }
         set { juwel2Get = value; }
     }
 
+    public bool Juwel2Used
+    {
+        get { return Juwel2Used;}
+        set { juwel2Used = value;}
+    }
+
     public bool Juwel3Get
     {
         get { return juwel3Get; }
         set { juwel3Get = value; }
+    }
+
+    public bool Juewl3Used
+    {
+        get { return juwel3Used;}
+        set { juwel3Used = value;}
     }
 
     public bool RightKey
