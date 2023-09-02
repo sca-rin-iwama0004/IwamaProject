@@ -6,6 +6,8 @@ public class Item : MonoBehaviour
 {
     [SerializeField] GameObject meatImag;
     [SerializeField] GameObject stickImag;
+    [SerializeField] GameObject juwel1Imag;
+    [SerializeField] GameObject juwel2Imag;
     [SerializeField] GameObject safekeyImag;
     [SerializeField] GameObject exitkeyImag;
 
@@ -42,6 +44,28 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.StickUsed)
         {
             stickImag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
+        //宝石１を手に入れたら表示する
+        if (GameManager.Instance.Juwel1Get)
+        {
+            juwel1Imag.SetActive(true);
+        }
+        //宝石１を使ったら半透明にする
+        if (GameManager.Instance.Juwel1Used)
+        {
+            juwel1Imag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
+        //宝石２を手に入れたら表示する
+        if (GameManager.Instance.Juwel2Get)
+        {
+            juwel2Imag.SetActive(true);
+        }
+        //宝石２を使ったら半透明にする
+        if (GameManager.Instance.Juwel2Used)
+        {
+            juwel2Imag.GetComponent<CanvasGroup>().alpha = 0.3f;
         }
 
         //金庫のカギを手に入れたら表示する
