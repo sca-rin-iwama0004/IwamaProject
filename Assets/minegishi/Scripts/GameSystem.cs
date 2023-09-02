@@ -24,8 +24,9 @@ public class GameSystem : MonoBehaviour
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
+                float maxRayDistance = 4f; // Rayが飛ぶ最大の距離
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit,maxRayDistance))
                 {
                     if (hit.collider.gameObject.name == "Door") //ドアをクリック
                     {
@@ -60,6 +61,11 @@ public class GameSystem : MonoBehaviour
                     if (hit.collider.gameObject.name == "ExitDoor" && GameManager.Instance.ExitDoorOpen) //ドアをクリック
                     {
                         SceneManager.LoadScene("entranceScene");
+                    }
+
+                    if (hit.collider.gameObject.name == "PrisonRoom") //ドアをクリック
+                    {
+                        SceneManager.LoadScene("rouyaScene");
                     }
                 }
 

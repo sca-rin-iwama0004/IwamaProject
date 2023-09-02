@@ -30,8 +30,9 @@ public class ExitDoor : MonoBehaviour
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
+                float maxRayDistance = 4f; // Ray‚ª”ò‚ÔÅ‘å‚Ì‹——£
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit,maxRayDistance))
                 {
                     if (hit.collider.gameObject.name == "ExitDoor" && !GameManager.Instance.ExitDoorOpen)
                     {
