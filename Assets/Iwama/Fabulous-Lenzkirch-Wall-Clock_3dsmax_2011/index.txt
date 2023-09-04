@@ -1,0 +1,8 @@
+﻿Name: Fabulous Lenzkirch Wall Clock
+Type: model
+Format: 3Ds Max 2011
+Export: FBX, OBJ, MAT
+Render: VRay (3.x)
+Polys: 245256
+Verts: 249017
+Units: Millimeters

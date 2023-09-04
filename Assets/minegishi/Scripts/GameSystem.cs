@@ -67,6 +67,11 @@ public class GameSystem : MonoBehaviour
                     {
                         SceneManager.LoadScene("rouyaScene");
                     }
+
+                    if (hit.collider.gameObject.name == "EntranceDoor") //ドアをクリック
+                    {
+                        SceneManager.LoadScene("SampleScene");
+                    }
                 }
 
             }
