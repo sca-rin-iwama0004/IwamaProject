@@ -104,7 +104,6 @@ public class TextWriter : MonoBehaviour
         }
 
         Stick stick = GameObject.Find("Stick").GetComponent<Stick>();
-        StickGimmck stickgimmick = GameObject.Find("StickMove").GetComponent<StickGimmck>();
         if (GameManager.Instance.StickText == true) //棒のテキスト
         {
             uitext.DrawText("棒を手に入れた");
@@ -118,18 +117,19 @@ public class TextWriter : MonoBehaviour
             //stickgimmick.transform.position = new Vector3(2.849f, 0.562f, 4.361f);
         }
 
-        //if (GameManager.Instance.RouyaKeyText)
-        //{
-        //    uitext.DrawText("棒で牢屋の鍵を手繰り寄せた");
-        //    yield return StartCoroutine("Skip");
-        //    uitext.DrawText("牢屋が開いた");
-        //    yield return StartCoroutine("Skip");
+        RouyaKey rouyakey = GameObject.Find("RouyaKey").GetComponent<RouyaKey>();
+        if (GameManager.Instance.RouyaKeyText)
+        {
+            uitext.DrawText("棒で牢屋の鍵を手繰り寄せた");
+            yield return StartCoroutine("Skip");
+            uitext.DrawText("牢屋が開いた");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    GameManager.Instance.RouyaKeyText = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //    stickgimmick.transform.position = new Vector3(2.7f, -5f, 3.5f);
-        //}
+            uitext.DrawText(" ");
+            GameManager.Instance.RouyaKeyText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            rouyakey.transform.position = new Vector3(2.7f, -5f, 3.5f);
+        }
 
         Juwel1 juwel1 = GameObject.Find("Juwel1").GetComponent<Juwel1>();
         if (GameManager.Instance.Juwel1Text == true) //宝石1のテキスト
@@ -153,6 +153,18 @@ public class TextWriter : MonoBehaviour
             GameManager.Instance.Juwel2Text = false;
             GM.PlayMode = GameManager.Mode.Play;
             juwel2.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
+        }
+
+        Juwel3 juwel3 = GameObject.Find("Juwel3").GetComponent<Juwel3>();
+        if (GameManager.Instance.Juwel3Text == true) //宝石1のテキスト
+        {
+            uitext.DrawText("宝石を手に入れた");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" ");
+            GameManager.Instance.Juwel3Text = false;
+            GM.PlayMode = GameManager.Mode.Play;
+            juwel3.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
         }
 
         //if(statue.statuetext == true) //動かせない銅像のテキスト
