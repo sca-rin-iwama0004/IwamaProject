@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
     private bool bookshelfGimmick = false;
     private bool bookshelfText = false;
 
+    private bool rouyaText = false;
+
     private bool exitKeyGet = false;
     private bool exitKeyUsed = false;
     private bool exitKeyText = false;
@@ -357,6 +359,11 @@ public class GameManager : MonoBehaviour
     {
         get { return manualText; }
         set { manualText = value;}
+    }
+
+    public bool RouyaText {
+        get { return rouyaText;}
+        set { rouyaText = value;}
     }
 
     public bool KanariaRescue
