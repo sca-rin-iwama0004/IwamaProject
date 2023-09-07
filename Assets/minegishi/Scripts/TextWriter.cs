@@ -90,7 +90,7 @@ public class TextWriter : MonoBehaviour
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
         //Debug.Log("text");
-        Meat meat = GameObject.Find("Meat").GetComponent<Meat>();
+       
         if (GameManager.Instance.MeatText == true) //肉のテキスト
         {
             uitext.DrawText("肉を手に入れた");
@@ -100,10 +100,10 @@ public class TextWriter : MonoBehaviour
             GameManager.Instance.MeatText = false;
             GM.PlayMode = GameManager.Mode.Play;
             //Destroy(meat);
+            Meat meat = GameObject.Find("Meat").GetComponent<Meat>();
             meat.transform.position = new Vector3(0, -5, 0); //画面外に移動
         }
 
-        Stick stick = GameObject.Find("Stick").GetComponent<Stick>();
         if (GameManager.Instance.StickText == true) //棒のテキスト
         {
             uitext.DrawText("棒を手に入れた");
@@ -113,11 +113,12 @@ public class TextWriter : MonoBehaviour
             GameManager.Instance.StickText = false;
             GM.PlayMode = GameManager.Mode.Play;
             //Destroy(rod);
+            Stick stick = GameObject.Find("Stick").GetComponent<Stick>();
             stick.transform.position = new Vector3(-2.6f, -5, -2);　//画面外に移動
             //stickgimmick.transform.position = new Vector3(2.849f, 0.562f, 4.361f);
         }
 
-        RouyaKey rouyakey = GameObject.Find("RouyaKey").GetComponent<RouyaKey>();
+        
         if (GameManager.Instance.RouyaKeyText)
         {
             uitext.DrawText("棒で牢屋の鍵を手繰り寄せた");
@@ -128,10 +129,10 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText(" ");
             GameManager.Instance.RouyaKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
+            RouyaKey rouyakey = GameObject.Find("RouyaKey").GetComponent<RouyaKey>();
             rouyakey.transform.position = new Vector3(2.7f, -5f, 3.5f);
         }
 
-        Juwel1 juwel1 = GameObject.Find("Juwel1").GetComponent<Juwel1>();
         if (GameManager.Instance.Juwel1Text == true) //宝石1のテキスト
         {
             uitext.DrawText("宝石を手に入れた");
@@ -140,10 +141,10 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText(" ");
             GameManager.Instance.Juwel1Text = false;
             GM.PlayMode = GameManager.Mode.Play;
+            Juwel1 juwel1 = GameObject.Find("Juwel1").GetComponent<Juwel1>();
             juwel1.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
         }
-
-        Juwel2 juwel2 = GameObject.Find("Juwel2").GetComponent<Juwel2>();
+ 
         if (GameManager.Instance.Juwel2Text == true) //宝石1のテキスト
         {
             uitext.DrawText("宝石を手に入れた");
@@ -152,10 +153,10 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText(" ");
             GameManager.Instance.Juwel2Text = false;
             GM.PlayMode = GameManager.Mode.Play;
+            Juwel2 juwel2 = GameObject.Find("Juwel2").GetComponent<Juwel2>();
             juwel2.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
         }
 
-        Juwel3 juwel3 = GameObject.Find("Juwel3").GetComponent<Juwel3>();
         if (GameManager.Instance.Juwel3Text == true) //宝石1のテキスト
         {
             uitext.DrawText("宝石を手に入れた");
@@ -164,6 +165,7 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText(" ");
             GameManager.Instance.Juwel3Text = false;
             GM.PlayMode = GameManager.Mode.Play;
+            Juwel3 juwel3 = GameObject.Find("Juwel3").GetComponent<Juwel3>();
             juwel3.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
         }
 
@@ -255,7 +257,6 @@ public class TextWriter : MonoBehaviour
         //    GM.PlayMode = GameManager.Mode.Play;
         //}
 
-        SafeKey safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
         if (GameManager.Instance.SafeKeyText == true) //金庫の鍵のテキスト
         {
             uitext.DrawText("金庫の鍵を手に入れた");
@@ -264,6 +265,8 @@ public class TextWriter : MonoBehaviour
             uitext.DrawText(" ");
             GameManager.Instance.SafeKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
+
+            SafeKey safekey = GameObject.Find("SafeKey").GetComponent<SafeKey>();
             safekey.transform.position = new Vector3(10000, 10000, 10000);
         }
 
@@ -294,7 +297,19 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        Kanaria kanaria = GameObject.Find("kanaria").GetComponent<Kanaria>();
+
+        if (GameManager.Instance.RouyaText)
+        {
+            uitext.DrawText("牢屋の鍵を使って扉を開けた");
+            yield return StartCoroutine("Skip");
+
+            uitext.DrawText(" "); GameManager.Instance.RouyaText = false;
+            Rouya rouya = GameObject.Find("Rouya").GetComponent<Rouya>();
+            rouya.transform.position = new Vector3(0f, -15, 8);
+            GM.PlayMode = GameManager.Mode.Play;
+  
+        }
+
         if (GameManager.Instance.KanariaText)
         {
             uitext.DrawText("カナリアが囚われている");
@@ -306,6 +321,7 @@ public class TextWriter : MonoBehaviour
 
             uitext.DrawText(" ", " ");
             GameManager.Instance.KanariaText = false;
+            Kanaria kanaria = GameObject.Find("kanaria").GetComponent<Kanaria>();
             kanaria.transform.position = new Vector3(-16.75f, -10, 8);
             GM.PlayMode = GameManager.Mode.Play;
         }
@@ -330,7 +346,6 @@ public class TextWriter : MonoBehaviour
             GM.PlayMode = GameManager.Mode.Play;
         }
 
-        ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
         //GameObject exitKey = GameObject.Find("ExitKey");
         if (GameManager.Instance.ExitKeyText == true) //出口の鍵のテキスト
         {
@@ -341,6 +356,7 @@ public class TextWriter : MonoBehaviour
             GameManager.Instance.ExitKeyText = false;
             GM.PlayMode = GameManager.Mode.Play;
             //Destroy(exitKey);
+            ExitKey exitkey = GameObject.Find("ExitKey").GetComponent<ExitKey>();
             exitkey.transform.position = new Vector3(-29, -20.8f, 10.9f); //画面外に移動
         }
 
