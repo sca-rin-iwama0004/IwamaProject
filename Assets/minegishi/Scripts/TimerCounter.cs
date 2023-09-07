@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class TimerCounter : MonoBehaviour
 {
 
-    [SerializeField] float timeMinutes;
+    //[SerializeField] float timeMinutes;
     public float timeSeconds;
     [SerializeField] Text timeText;
     [SerializeField] GameObject text;
@@ -26,13 +26,13 @@ public class TimerCounter : MonoBehaviour
         }else
             Destroy(this.gameObject);
 
-        timeSeconds = timeMinutes * 60;
+        //timeSeconds = timeMinutes * 60;
     }
 
     
     void Update()
     {
-        if(GM.PlayMode == GameManager.Mode.Play) { 
+        if(GM.PlayMode == GameManager.Mode.Play) {
             timeSeconds -= Time.deltaTime;
             text.SetActive(true);
         }else

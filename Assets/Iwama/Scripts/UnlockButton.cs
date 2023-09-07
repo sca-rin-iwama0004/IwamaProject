@@ -26,6 +26,9 @@ public class UnlockButton : MonoBehaviour
             Debug.Log("鍵が開く");
             bu.enabled = true;
             unlock = true;
+            GameManager.Instance.Juwel1Used = true;
+            GameManager.Instance.Juwel2Used = true;
+            GameManager.Instance.Juwel3Used = true;
         }
         //unrockはゲーマネか？
     }

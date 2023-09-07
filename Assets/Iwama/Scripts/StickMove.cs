@@ -58,6 +58,7 @@ public class StickMove : MonoBehaviour
             Portao.SetActive(false);
             collision.SetActive(false);
             stick.SetActive(false);
+            GameManager.Instance.StickUsed = true;
             GameManager.Instance.RouyaKeyGet = true;
             GameManager.Instance.RouyaKeyText = true;
             Debug.Log(GameManager.Instance.RouyaKeyGet);
