@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     private bool juwel3Used = false;
     private bool juwel3Text = false;
 
+    private bool statueText = false;
     private bool rightKey = false;
+    private bool rightText = false;
 
     private bool stickGet = false;
     private bool stickUsed = false;
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetFlags()
     {
+        TimerCounter timer = GameObject.Find("Timer").GetComponent<TimerCounter>();
+        timer.timeSeconds = 300;
         juwelCount = 0;
         juwel1Get = false;
         juwel1Used = false;
@@ -160,6 +164,11 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
 
+    //public float TimerCount {
+    //    get { return TimerCount;}
+    //    set { TimerCount = value;}
+    //}
+
     public int JuwelCount
     {
         get { return juwelCount; }
@@ -221,6 +230,14 @@ public class GameManager : MonoBehaviour
     {
         get { return rightKey; }
         set { rightKey = value; }
+    }
+    public bool StatueText {
+        get { return statueText;}
+        set { statueText = value;}
+    }
+    public bool RightText {
+        get { return rightText;}
+        set { rightText = value;}
     }
 
     public bool StickGet

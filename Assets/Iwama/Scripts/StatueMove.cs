@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StatueMove : MonoBehaviour
 {
+    GameManager GM;
+
     public Transform MoveObj;
     public Transform target;//視線の対象となるオブジェクト
     public float maxDistance = 100f;//視点を判定する最大距離
@@ -21,8 +23,9 @@ public class StatueMove : MonoBehaviour
     //→視点の方向や距離を判定する必要がある
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         //右のドアのかぎが開いていたら
-       if (GameManager.Instance.RightKey)
+        if (GameManager.Instance.RightKey)
        {
             MoveObj.transform.Rotate(0,-90,0);
             Light.SetActive(true);
@@ -100,8 +103,15 @@ public class StatueMove : MonoBehaviour
     {
         if (isLookingAtTarget)
         {
-            GameManager.Instance.RightKey = true;
-            Light.SetActive(true);
+            if (!GameManager.Instance.RightKey) { 
+                GM.PlayMode = GameManager.Mode.Text;
+                TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
+                GameManager.Instance.StatueText = true;
+                StartCoroutine(text.Cotest());
+
+                GameManager.Instance.RightKey = true;
+                Light.SetActive(true);
+            }
         }
         else
         {

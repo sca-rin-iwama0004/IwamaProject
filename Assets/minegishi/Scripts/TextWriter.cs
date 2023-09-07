@@ -167,32 +167,25 @@ public class TextWriter : MonoBehaviour
             juwel3.transform.position = new Vector3(-2.6f, -5, -2); //画面外に移動
         }
 
-        //if(statue.statuetext == true) //動かせない銅像のテキスト
-        //{
-        //    uitext.DrawText("像だ、もう一つの像と向かい合っている");
-        //    yield return StartCoroutine("Skip");
+        if (GameManager.Instance.RightText)
+        {
+            uitext.DrawText("鍵がかかっている");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    statue.statuetext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
-        //if(statue.moveStatueText == true) //動かせる銅像のテキスト
-        //{
-        //    uitext.DrawText("像だ、……よく見るとボタンが付いていて動かせそうだ");
-        //    yield return StartCoroutine("Skip");
+            uitext.DrawText(" ");
+            GameManager.Instance.RightText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
 
-        //    uitext.DrawText(" ");
-        //    statue.moveSatatueText = false;
-        //}
-        //if(statue.opentext == true) //銅像が向かい合った時
-        //{
-        //    uitext.DrawText("近くの部屋が開いたようだ");
-        //    yield return StartCoroutine("Skip");
+        if (GameManager.Instance.StatueText) //銅像が向かい合った時
+        {
+            uitext.DrawText("近くの部屋が開いたようだ");
+            yield return StartCoroutine("Skip");
 
-        //    uitext.DrawText(" ");
-        //    Statue.opentext = false;
-        //    GM.PlayMode = GameManager.Mode.Play;
-        //}
+            uitext.DrawText(" ");
+            GameManager.Instance.StatueText = false;
+            GM.PlayMode = GameManager.Mode.Play;
+        }
 
         //if(pot.pottext == true) //壺のテキスト
         //{
