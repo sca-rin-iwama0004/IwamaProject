@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CameraChange : MonoBehaviour
 {
-    //合わせれたらCameraContorollで合わせたいけど、サブカメラ2つ使うかもだから
     public GameObject mainCamera;
     public GameObject subCamera;
     private Camera subC;//サブカメラ
@@ -28,24 +27,15 @@ public class CameraChange : MonoBehaviour
             StartCoroutine("Zoom");
             mainCamera.GetComponent<Camera>().enabled = false;
             subCamera.GetComponent<Camera>().enabled = true;
-        
         }
     }
 
     IEnumerator Zoom()
     {
-        //音入れる？
         if (subC.fieldOfView > 18.90)
         {
             subC.fieldOfView--;
             yield return new WaitForSeconds(0.03f);
         }
     }
-
-    /*
-      void SceneChange()
-     {
-         SceneManager.LoadScene("gameoverScene");
-     }
-     */
 }
