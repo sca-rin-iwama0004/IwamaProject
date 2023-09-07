@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] GameObject meatImag;
     [SerializeField] GameObject stickImag;
-    [SerializeField] GameObject rouyaKey;
+    [SerializeField] GameObject rouyaKeyImag;
     [SerializeField] GameObject juwel1Imag;
     [SerializeField] GameObject juwel2Imag;
     [SerializeField] GameObject juwel3Imag;
@@ -48,6 +48,17 @@ public class Item : MonoBehaviour
             stickImag.GetComponent<CanvasGroup>().alpha = 0.3f;
         }
 
+        //牢屋のカギを手に入れたら表示する
+        if (GameManager.Instance.RouyaKeyGet)
+        {
+            rouyaKeyImag.SetActive(true);
+        }
+        //牢屋のカギを使ったら半透明にする
+        if (GameManager.Instance.RouyaKeyUsed)
+        {
+            rouyaKeyImag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
         //宝石１を手に入れたら表示する
         if (GameManager.Instance.Juwel1Get)
         {
@@ -68,6 +79,17 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.Juwel2Used)
         {
             juwel2Imag.GetComponent<CanvasGroup>().alpha = 0.3f;
+        }
+
+        //宝石３を手に入れたら表示する
+        if (GameManager.Instance.Juwel3Get)
+        {
+            juwel3Imag.SetActive(true);
+        }
+        //宝石３を使ったら半透明にする
+        if (GameManager.Instance.Juwel3Used)
+        {
+            juwel3Imag.GetComponent<CanvasGroup>().alpha = 0.3f;
         }
 
         //金庫のカギを手に入れたら表示する

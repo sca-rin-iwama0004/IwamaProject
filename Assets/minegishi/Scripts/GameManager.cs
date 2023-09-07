@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
         set { juwel3Get = value; }
     }
 
-    public bool Juewl3Used
+    public bool Juwel3Used
     {
         get { return juwel3Used;}
         set { juwel3Used = value;}

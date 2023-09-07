@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class StickMove : MonoBehaviour
 {
-    GameManager GM;
-    TextWriter text;
+
 
     private bool isDragging = false; // オブジェクトがドラッグ中かどうかのフラグ
     private Vector3 offset; // マウスクリック位置とオブジェクト位置のオフセット
-    [SerializeField] GameObject key;
+    //[SerializeField] GameObject key;
     [SerializeField] GameObject Portao;
     [SerializeField] GameObject collision;//当たり判定の箱
     [SerializeField] GameObject stick;
@@ -29,11 +28,6 @@ public class StickMove : MonoBehaviour
     {
         // マウスボタンが離されたときに呼ばれるイベント
         isDragging = false; // ドラッグフラグを無効にする
-    }
-
-    private void Start()
-    {
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -60,15 +54,12 @@ public class StickMove : MonoBehaviour
         if (other.gameObject.tag == "Key")
         {
             Debug.Log("鍵を入手");
-            key.SetActive(false);
+            //key.SetActive(false);
             Portao.SetActive(false);
             collision.SetActive(false);
             stick.SetActive(false);
             GameManager.Instance.RouyaKeyGet = true;
             GameManager.Instance.RouyaKeyText = true;
-            //GM.PlayMode = GameManager.Mode.Text;
-            //TextWriter text = GameObject.Find("Text").GetComponent<TextWriter>();
-            //StartCoroutine(text.Cotest());
             Debug.Log(GameManager.Instance.RouyaKeyGet);
         }
     }
