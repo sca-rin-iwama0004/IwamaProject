@@ -8,12 +8,17 @@ public class Juwel2 : MonoBehaviour
     TextWriter text;
 
     public Camera specificCamera;
+    [SerializeField] Transform juwel;
 
     //public bool juwel2Text = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.Juwel2Get)
+        {
+            juwel.transform.position = new Vector3(-2.6f, -5, -2);
+        }
     }
 
     void Update()

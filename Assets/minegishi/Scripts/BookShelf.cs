@@ -7,11 +7,11 @@ public class BookShelf : MonoBehaviour
     [SerializeField] GameObject player;
 
     private Vector3 bookshelfpos;
+    [SerializeField] Transform book;
 
     //public static bool gimmick = false;
     //public bool gimmicktext = false;
 
-    public TimerCounter timer;
     GameManager GM;
 
     private enum StateType
@@ -27,6 +27,10 @@ public class BookShelf : MonoBehaviour
     {
         PlayStart();
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.BookShelfGimmick)
+        {
+            book.transform.position = new Vector3(-36.8f, -3, -1.5f);
+        }
     }
 
     void Update()

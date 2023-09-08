@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     private bool bookshelfGimmick = false;
     private bool bookshelfText = false;
 
+    private bool rouyaOpen = false;
     private bool rouyaText = false;
 
     private bool exitKeyGet = false;
@@ -114,7 +115,11 @@ public class GameManager : MonoBehaviour
         safeOpen = false;
         bookshelfGimmick = false;
 
+        exitKeyGet = false;
+        exitKeyUsed = false;
         exitDoorOpen = false;
+
+        rouyaOpen = false;
 
         GameStart = false;
         GameStartText = false;
@@ -361,6 +366,11 @@ public class GameManager : MonoBehaviour
         set { manualText = value;}
     }
 
+    public bool RouyaOpen
+    {
+        get { return rouyaOpen; }
+        set { rouyaOpen = value; }
+    }
     public bool RouyaText {
         get { return rouyaText;}
         set { rouyaText = value;}

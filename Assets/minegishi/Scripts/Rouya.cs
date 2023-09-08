@@ -8,9 +8,14 @@ public class Rouya : MonoBehaviour
 
     [SerializeField] GameObject player;
     private Vector3 rouyaPos;
+    [SerializeField] Transform rouya;
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.RouyaOpen)
+        {
+            rouya.transform.position = new Vector3(0f, -15, 8);
+        }
     }
 
 
@@ -31,6 +36,7 @@ public class Rouya : MonoBehaviour
                 {
                     if (hit.collider.gameObject.name == "Rouya" && dis <= 9) 
                     {
+                        GameManager.Instance.RouyaOpen = true;
                         GameManager.Instance.RouyaKeyUsed = true;
                         GameManager.Instance.RouyaText = true;
                         GM.PlayMode = GameManager.Mode.Text;

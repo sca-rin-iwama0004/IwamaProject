@@ -7,11 +7,19 @@ public class Meat : MonoBehaviour
     GameManager GM;
     TextWriter text;
 
+    [SerializeField] Transform meat;
+
+
     //public bool meatText = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.MeatGet)
+        {
+            meat.transform.position = new Vector3(0, -5, 0);
+        }
+        
     }
 
 

@@ -7,6 +7,7 @@ public class ExitKey : MonoBehaviour
     [SerializeField] GameObject player;
 
     private Vector3 exitkeyPos;
+    [SerializeField] Transform exitkey;
 
     //public static bool exitKeyÅ@= false;
     public bool exitKeyText = false;
@@ -18,6 +19,10 @@ public class ExitKey : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.ExitKeyGet)
+        {
+            exitkey.transform.position = new Vector3(-29, -20.8f, 10.9f);
+        }
     }
 
     
