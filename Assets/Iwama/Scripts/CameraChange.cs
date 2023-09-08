@@ -32,10 +32,10 @@ public class CameraChange : MonoBehaviour
 
     IEnumerator Zoom()
     {
-        if (subC.fieldOfView > 18.90)
+        if (subC.fieldOfView > 18.00)
         {
-            subC.fieldOfView--;
-            yield return new WaitForSeconds(0.03f);
+            subC.fieldOfView-=3;
+            yield return new WaitForSeconds(0.003f);
         }
     }
 }
