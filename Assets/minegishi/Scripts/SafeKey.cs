@@ -6,12 +6,7 @@ public class SafeKey : MonoBehaviour
 {
     [SerializeField] GameObject player;
     public Camera specificCamera;
-
-    private Vector3 safekeyPos;
-
-    //public static bool safeKey = false;
-    //public bool safeKeyText = false;
-    //public static bool safeKeyUsed = false;
+    [SerializeField] Transform safekey;
 
     GameManager GM;
     TextWriter text;
@@ -19,15 +14,14 @@ public class SafeKey : MonoBehaviour
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.SafeKeyGet)
+        {
+            safekey.transform.position = new Vector3(10000, 10000, 10000);
+        }
     }
 
     void Update()
     {
-        Transform myTransform = this.transform;
-        safekeyPos = myTransform.position;
-        Vector3 playerpos = player.transform.position;Å@//playerÇÃç¿ïW        
-        float dis = Vector3.Distance(safekeyPos, playerpos);
-
         if (GM.PlayMode == GameManager.Mode.Play)
         {
             if (Input.GetMouseButtonDown(0))

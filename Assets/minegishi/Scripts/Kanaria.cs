@@ -6,6 +6,7 @@ public class Kanaria : MonoBehaviour
 {
     [SerializeField] GameObject player;
     private Vector3 kanariaPos;
+    [SerializeField] Transform kanaria;
 
     //public static bool KanariaRescue = false;
     //public bool kanariaText = false;
@@ -17,6 +18,10 @@ public class Kanaria : MonoBehaviour
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         text = GameObject.Find("Text").GetComponent<TextWriter>();
+        if (GameManager.Instance.KanariaRescue)
+        {
+            kanaria.transform.position = new Vector3(-16.75f, -10, 8);
+        }
     }
 
     void Update()

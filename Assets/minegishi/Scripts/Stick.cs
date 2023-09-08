@@ -7,11 +7,16 @@ public class Stick : MonoBehaviour
     GameManager GM;
     TextWriter text;
 
+    [SerializeField] Transform stick;
     //public bool stickText = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.StickGet)
+        {
+            stick.transform.position = new Vector3(-2.6f, -5, -2);
+        }
     }
 
 

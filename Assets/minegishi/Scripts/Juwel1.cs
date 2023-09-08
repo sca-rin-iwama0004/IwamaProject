@@ -7,11 +7,17 @@ public class Juwel1 : MonoBehaviour
     GameManager GM;
     TextWriter text;
 
+    [SerializeField] Transform juwel;
+
     //public bool juwel1Text = false;
 
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameManager.Instance.Juwel1Get)
+        {
+            juwel.transform.position = new Vector3(-2.6f, -5, -2);
+        }
     }
 
     void Update()

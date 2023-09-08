@@ -39,6 +39,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.MeatGet == false)
         {
             meatImag.SetActive(false);
+            meatImag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
 
@@ -55,6 +56,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.StickGet == false)
         {
             stickImag.SetActive(false);
+            stickImag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //牢屋のカギを手に入れたら表示する
@@ -70,6 +72,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.RouyaKeyGet == false)
         {
             rouyaKeyImag.SetActive(false);
+            rouyaKeyImag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //宝石１を手に入れたら表示する
@@ -85,6 +88,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.Juwel1Get == false)
         {
             juwel1Imag.SetActive(false);
+            juwel1Imag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //宝石２を手に入れたら表示する
@@ -100,6 +104,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.Juwel2Get == false)
         {
             juwel2Imag.SetActive(false);
+            juwel2Imag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //宝石３を手に入れたら表示する
@@ -115,6 +120,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.Juwel3Get == false)
         {
             juwel3Imag.SetActive(false);
+            juwel3Imag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //金庫のカギを手に入れたら表示する
@@ -130,6 +136,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.SafeKeyGet == false)
         {
             safekeyImag.SetActive(false);
+            safekeyImag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
 
         //出口のカギを手に入れたら表示する
@@ -145,6 +152,7 @@ public class Item : MonoBehaviour
         if (GameManager.Instance.ExitKeyGet == false)
         {
             exitkeyImag.SetActive(false);
+            exitkeyImag.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
     }
 }
